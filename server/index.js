@@ -1,3 +1,4 @@
+//server side
 const express = require("express")
 const bobyParser = require('body-parser')
 const cors = require('cors')
