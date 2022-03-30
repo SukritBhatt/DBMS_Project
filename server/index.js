@@ -3,8 +3,6 @@ const bobyParser = require('body-parser')
 const cors = require('cors')
 const app = express();
 const mysql = require("mysql")
-const bcrypt = require('bcrypt')
-const salt = '$2b$10$9LVBYTgOZfXNqU7Bgs4b3O'
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -23,18 +21,16 @@ app.post("/api/registerPassenger", (req, res) => {
 
     const name = req.body.name
     const nid = req.body.nid
-    const encryptedNid = bcrypt.hashSync(nid, salt)
     const email = req.body.email
     const mobile = req.body.mobile
     const password = req.body.password
-    const encryptedPassword = bcrypt.hashSync(password, salt)
 
     const sqlInsertPassenger = "INSERT INTO passenger (name, nid, email, mobile, password) VALUES (?,?,?,?,?)"
-    db.query(sqlInsertPassenger, [name, encryptedNid, email, mobile, encryptedPassword], (err) => {
+    db.query(sqlInsertPassenger, [name, nid, email, mobile, password], (err) => {
         if (err == null) {
             var user = {
                 isValid: true,
-                nid: encryptedNid,
+                nid: nid, 
             };
         } else {
             var user = {
@@ -50,11 +46,9 @@ app.post("/api/loginPassenger", (req, res) => {
 
     const email = req.body.email
     const password = req.body.password
-    const encryptedPassword = bcrypt.hashSync(password, salt)
     
     const sqlSelectPassenger = "SELECT * FROM passenger WHERE email = ? AND password = ?"
-    db.query(sqlSelectPassenger, [email, encryptedPassword], (err, result) => {
-
+    db.query(sqlSelectPassenger, [email, password], (err, result) => {
         if (result.length == 1) {
             var user = {
                 isValid: true,
@@ -83,7 +77,6 @@ app.post("/api/getPassengerJourneys", (req, res) => {
     db.query(sqlSelectPassenger, [nid], (err, result) => {
         return res.json(result);
     });
-
 });
 
 app.post("/api/getTrainName", (req, res) => {
