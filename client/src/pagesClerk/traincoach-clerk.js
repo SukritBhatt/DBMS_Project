@@ -220,13 +220,25 @@ export class TrainCoachClerk extends Component {
             noOfCoaches: data,
         })
     }
+    async changeFare(){
+        await Axios.post("http://localhost:3001/api/getFare", {
+            trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
+            coachClassID: this.state.coachClassID,
+            fromPosition: this.props.selectedTrainIDFromPositionToPosition.fromStationPosition,
+            toPosition: this.props.selectedTrainIDFromPositionToPosition.toStationPosition,
+        }) .then((res) => {
+            console.log(res.data[0].fare);
+            this.setFare(res.data[0].fare);
+        })
+        
+    };
 
-    changeCoachSeat(data) {
+    async changeCoachSeat(data) {
         this.props.setSelectedCoachID(parseInt(data));
 
         this.clearChosenSeatList();
 
-        Axios.post("http://localhost:3001/api/getSeatCount", {
+        await Axios.post("http://localhost:3001/api/getSeatCount", {
             trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
             coachID: data,
         })
@@ -285,6 +297,7 @@ export class TrainCoachClerk extends Component {
                     })
                 }
             })
+            await this.changeFare();
     }
 
     toggleSidebar = () => {
@@ -292,9 +305,11 @@ export class TrainCoachClerk extends Component {
             isSidebarOpen: !this.state.isSidebarOpen,
         })
     }
-
+    
+    
     async purchasePressed(event) {
         event.preventDefault();
+     
 
         await Axios.post("http://localhost:3001/api/addTicket", {
             issueTime: '2021-10-22 05:40:30',
@@ -325,7 +340,7 @@ export class TrainCoachClerk extends Component {
                 }
 
             })
-
+            this.setFare(this.state.fare*this.state.chosenSeatList.length);
 
             let objectList = [];
             for (var seat = 0; seat < this.state.chosenSeatList.length; seat++) {
@@ -430,8 +445,7 @@ export class TrainCoachClerk extends Component {
 
                     <div style={this.state.styleClassFare}>
                         <text style={this.state.styleText}>Class: {this.state.coachClassName}</text>
-
-                        <text style={this.state.styleText}>Fare: {this.state.fare}</text>
+                        <text style={this.state.styleText}>Fare for 1 ticket: {this.state.fare}</text>
                     </div>
 
                     <Container3>
