@@ -1,5 +1,6 @@
 import Axios from 'axios';
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import  { Redirect } from 'react-router-dom'
 import { withRouter } from 'react-router';
 import TrainCoachSeat from '../components/TrainCoachSeat';
 import { Container1, Select, InfoDiv, UserInfoContainer, Button, Heading, Container2, Container3 } from './TrainCoachClerkElements'
@@ -11,28 +12,21 @@ export class TrainCoachClerk extends Component {
         super(props);
 
         this.state = {
-
             isSidebarOpen: false,
-
-
             trainName: "",
             fromStationName: "",
             toStationName: "",
-            fare: 0,
+            fare: 10,
             departureTime: "",
-
             noOfCoaches: 0,
             coachList: [],
-
             noOfSeats: 0,
             coachClassID: 0,
             coachClassName: "",
             seatList: [],
             seatStatusList: [],
             seatStatusList1: [],
-
             chosenSeatList: [],
-
             style: {
                 display: "flex",
                 flexDirection: "column",
@@ -72,12 +66,7 @@ export class TrainCoachClerk extends Component {
                 fontSize: "20px",
                 padding: "5px 0px 5px 0px",
             },
-
         }
-
-        // alert(this.props.selectedTrainIDFromPositionToPosition.trainID);
-        // alert(this.props.selectedTrainIDFromPositionToPosition.fromStationPosition);
-        // alert(this.props.selectedTrainIDFromPositionToPosition.toStationPosition);
 
         Axios.post("http://localhost:3001/api/getCoachesCount", {
             trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
@@ -235,7 +224,6 @@ export class TrainCoachClerk extends Component {
 
     async changeCoachSeat(data) {
         this.props.setSelectedCoachID(parseInt(data));
-
         this.clearChosenSeatList();
 
         await Axios.post("http://localhost:3001/api/getSeatCount", {
@@ -249,7 +237,6 @@ export class TrainCoachClerk extends Component {
                 })
                 this.setState({ seatList: [] })
                 this.setState({ seatStatusList: [] })
-
                 let promises = [];
                 this.setState({ seatStatusList1: [] })
 
@@ -274,14 +261,14 @@ export class TrainCoachClerk extends Component {
                 Promise.all(promises)
                     .then((results) => {
                         for (let i = 0; i < results.length; i++) {
+
                             if (results[i].data.isAvailable == true) {
-
                                 this.setState({ seatStatusList1: [...this.state.seatStatusList1, true] })
-
-                            } else {
-                                this.setState({ seatStatusList1: [...this.state.seatStatusList1, false] })
-
                             }
+                            else {
+                                this.setState({ seatStatusList1: [...this.state.seatStatusList1, false] })
+                            }
+
                         }
                     })
 
@@ -291,7 +278,8 @@ export class TrainCoachClerk extends Component {
                     this.setState({
                         coachClassName: "AC",
                     })
-                } else {
+                }
+                else {
                     this.setState({
                         coachClassName: "Non-AC",
                     })
@@ -309,10 +297,10 @@ export class TrainCoachClerk extends Component {
     
     async purchasePressed(event) {
         event.preventDefault();
-     
-
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         await Axios.post("http://localhost:3001/api/addTicket", {
-            issueTime: '2021-10-22 05:40:30',
+            issueTime: date,
             journeyTime: this.props.journeyDate.split('T')[0] + ' ' + this.state.departureTime,
             startPositon: this.props.selectedTrainIDFromPositionToPosition.fromStationPosition,
             endPosition: this.props.selectedTrainIDFromPositionToPosition.toStationPosition,
@@ -356,7 +344,6 @@ export class TrainCoachClerk extends Component {
                             trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
                             coachID: this.props.selectedCoachID,
                             date: this.props.journeyDate.split('T')[0],
-                            //date: '2021-10-29',
                             startPositon: f,
                             endPosition: t,
                             seatNo: this.state.chosenSeatList[seat],
@@ -372,8 +359,10 @@ export class TrainCoachClerk extends Component {
                 objectList: objectList,
             })
             .then((res) => {
+                //alert("i am here!");
                 this.props.setPassengerMail("");
-                this.props.history.push({ pathname: '/clerk-home' });
+                this.context.history.push("/clerk-home");
+                //<Redirect to="/clerk-home" />
             })
     };
 
@@ -507,4 +496,4 @@ export class TrainCoachClerk extends Component {
     }
 }
 
-export default withRouter(TrainCoachClerk)
+export default withRouter(TrainCoachClerk);
