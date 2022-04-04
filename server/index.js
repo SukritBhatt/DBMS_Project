@@ -186,6 +186,20 @@ app.post("/api/getStationList", (req, res) => {
     });
 
 });
+app.post("/api/getFare", (req, res) => {
+
+    const sqlSelectPassenger = "SELECT fare from fare where train_id= ? and class_id= ? and start_position= ? and end_position = ?"
+    const trainID=req.body.trainID;
+    const coachClassID=req.body.coachClassID;
+    const fromPosition=req.body.fromPosition;
+    const toPosition=req.body.toPosition;
+    
+    db.query(sqlSelectPassenger, [trainID,coachClassID,fromPosition,toPosition], (err, result) => {
+
+        return res.json(result);
+    });
+
+});
 
 app.post("/api/getStationIDForFindCard", (req, res) => {
 
