@@ -104,17 +104,17 @@ class FindCard extends Component {
       this.props.setNoOfPassengers(parseInt(this.state.selectedNoOfPassengers));
     });
 
-    // Axios.post("http://localhost:3001/api/getStationIDForFindCard", {
-    //     stationName: this.state.selectedToStationName,
-    // })
-    // .then((res) => {
-    //     this.props.setToStationID(res.data[0].Station_ID);
-    //     //alert(this.props.toStationID);
-    //     if(this.props.passengerMail == "")
-    //         this.props.history.push({ pathname: '/trainlist' });
-    //     else
-    //     this.props.history.push({ pathname: '/trainlist-user' });
-    // })
+    Axios.post("http://localhost:3001/api/getStationIDForFindCard", {
+         stationName: this.state.selectedToStationName,
+     })
+    .then((res) => {
+        this.props.setToStationID(res.data[0].Station_ID);
+        //alert(this.props.toStationID);
+        if(this.props.passengerMail == "")
+            this.props.history.push({ pathname: '/trainlist' });
+        else
+        this.props.history.push({ pathname: '/trainlist-user' });
+    })
   };
 
   render() {

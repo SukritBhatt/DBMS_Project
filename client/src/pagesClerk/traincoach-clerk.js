@@ -70,13 +70,11 @@ export class TrainCoachClerk extends Component {
 
         Axios.post("http://localhost:3001/api/getCoachesCount", {
             trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
+            classID:this.props.classID
         })
             .then((res) => {
-                this.setState({
-                    noOfCoaches: res.data[0].No_of_coaches,
-                })
-                for (let i = 1; i <= res.data[0].No_of_coaches; i++) {
-                    this.setState({ coachList: [...this.state.coachList, [i.toString()]] })
+                for (let i = 0; i < res.data.length; i++) {
+                    this.setState({ coachList: [...this.state.coachList, [res.data[i].coach_id.toString()]] })
                 }
             })
 
@@ -208,6 +206,11 @@ export class TrainCoachClerk extends Component {
         this.setState({
             noOfCoaches: data,
         })
+    }
+    componentWillUnmount() {
+        this.setState = (state,callback)=>{
+            return null;
+        };
     }
     async changeFare(){
         await Axios.post("http://localhost:3001/api/getFare", {

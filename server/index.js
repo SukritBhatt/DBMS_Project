@@ -265,9 +265,10 @@ app.post("/api/getDownTime", (req, res) => {
 app.post("/api/getCoachesCount", (req, res) => {
 
     const trainID = req.body.trainID
+    const classID=req.body.classID
 
-    const sqlSelectPassenger = "SELECT No_of_coaches FROM train WHERE Train_ID = ?"
-    db.query(sqlSelectPassenger, [trainID], (err, result) => {
+    const sqlSelectPassenger = "SELECT coach_id FROM train_coach WHERE Train_ID = ? and class_id = ?"
+    db.query(sqlSelectPassenger, [trainID,classID], (err, result) => {
         return res.json(result);
     });
 
