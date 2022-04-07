@@ -43,6 +43,7 @@ class TrainInfoContainer extends Component {
             },
             
         }
+        
         //alert(this.props.clerkID);
 
         Axios.post("http://localhost:3001/api/getTrainName", {
@@ -91,7 +92,7 @@ class TrainInfoContainer extends Component {
         }
          
         
-        //this.seeDetailsPressed = this.seeDetailsPressed.bind(this);
+        this.seeDetailsPressed = this.seeDetailsPressed.bind(this);
 
         this.setTrainName = this.setTrainName.bind(this);
         this.setFromStationName = this.setFromStationName.bind(this);

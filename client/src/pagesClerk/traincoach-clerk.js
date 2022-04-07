@@ -27,6 +27,7 @@ export class TrainCoachClerk extends Component {
             seatStatusList: [],
             seatStatusList1: [],
             chosenSeatList: [],
+            journeydate:this.props.journeyDate,
             style: {
                 display: "flex",
                 flexDirection: "column",
@@ -67,16 +68,14 @@ export class TrainCoachClerk extends Component {
                 padding: "5px 0px 5px 0px",
             },
         }
-
+     
         Axios.post("http://localhost:3001/api/getCoachesCount", {
             trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
+            classID:this.props.classID
         })
             .then((res) => {
-                this.setState({
-                    noOfCoaches: res.data[0].No_of_coaches,
-                })
-                for (let i = 1; i <= res.data[0].No_of_coaches; i++) {
-                    this.setState({ coachList: [...this.state.coachList, [i.toString()]] })
+                for (let i = 0; i < res.data.length; i++) {
+                    this.setState({ coachList: [...this.state.coachList, [res.data[i].coach_id.toString()]] })
                 }
             })
 
@@ -209,6 +208,11 @@ export class TrainCoachClerk extends Component {
             noOfCoaches: data,
         })
     }
+    componentWillUnmount() {
+        this.setState = (state,callback)=>{
+            return null;
+        };
+    }
     async changeFare(){
         await Axios.post("http://localhost:3001/api/getFare", {
             trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
@@ -250,7 +254,7 @@ export class TrainCoachClerk extends Component {
                             coachID: this.props.selectedCoachID,
                             fromPosition: this.props.selectedTrainIDFromPositionToPosition.fromStationPosition,
                             toPosition: this.props.selectedTrainIDFromPositionToPosition.toStationPosition,
-                            date: this.props.journeyDate.split('T')[0],
+                            date: this.props.journeyDate.toString().split('T')[0],
                             seatID: i,
                         })
                     );
@@ -299,9 +303,13 @@ export class TrainCoachClerk extends Component {
         event.preventDefault();
         var today = new Date();
         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        if(this.state.chosenSeatList.length>this.props.noOfPassengers)
+        {alert("You have chosen more passengers")
+        return;
+        }
         await Axios.post("http://localhost:3001/api/addTicket", {
             issueTime: date,
-            journeyTime: this.props.journeyDate.split('T')[0] + ' ' + this.state.departureTime,
+            journeyTime: this.props.journeyDate.toString().split('T')[0] + ' ' + this.state.departureTime,
             startPositon: this.props.selectedTrainIDFromPositionToPosition.fromStationPosition,
             endPosition: this.props.selectedTrainIDFromPositionToPosition.toStationPosition,
             trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
@@ -343,7 +351,7 @@ export class TrainCoachClerk extends Component {
                         let object = {
                             trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
                             coachID: this.props.selectedCoachID,
-                            date: this.props.journeyDate.split('T')[0],
+                            date: this.props.journeyDate.toString().split('T')[0],
                             startPositon: f,
                             endPosition: t,
                             seatNo: this.state.chosenSeatList[seat],
@@ -361,8 +369,8 @@ export class TrainCoachClerk extends Component {
             .then((res) => {
                 //alert("i am here!");
                 this.props.setPassengerMail("");
-                this.context.history.push("/clerk-home");
-                //<Redirect to="/clerk-home" />
+                //this.props.history.push("/clerk-home");
+                window.location.href='/clerk-home'
             })
     };
 
@@ -397,7 +405,8 @@ export class TrainCoachClerk extends Component {
 
                         <InfoDiv>
                             <label style={this.state.styleLabel}>Journey Date:</label>
-                            <text style={this.state.styleText}>{this.props.journeyDate}</text>
+                            <text style={this.state.styleText}>{this.state.journeydate.toString()}</text>
+                        
                         </InfoDiv>
 
                         <InfoDiv>
