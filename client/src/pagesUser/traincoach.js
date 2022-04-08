@@ -34,7 +34,7 @@ export class TrainCoach extends Component {
             seatStatusList1: [],
 
             chosenSeatList: [],
-
+            journeydate:this.props.journeyDate,
             style: {
                 display: "flex",
                 flexDirection: "column",
@@ -83,15 +83,14 @@ export class TrainCoach extends Component {
 
         Axios.post("http://localhost:3001/api/getCoachesCount", {
             trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
+            classID:this.props.classID
         })
             .then((res) => {
-                this.setState({
-                    noOfCoaches: res.data[0].No_of_coaches,
-                })
-                for (let i = 1; i <= res.data[0].No_of_coaches; i++) {
-                    this.setState({ coachList: [...this.state.coachList, [i.toString()]] })
+                for (let i = 0; i < res.data.length; i++) {
+                    this.setState({ coachList: [...this.state.coachList, [res.data[i].coach_id.toString()]] })
                 }
             })
+
 
 
         Axios.post("http://localhost:3001/api/getTrainName", {
@@ -221,13 +220,25 @@ export class TrainCoach extends Component {
             noOfCoaches: data,
         })
     }
+    async changeFare(){
+        await Axios.post("http://localhost:3001/api/getFare", {
+            trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
+            coachClassID: this.state.coachClassID,
+            fromPosition: this.props.selectedTrainIDFromPositionToPosition.fromStationPosition,
+            toPosition: this.props.selectedTrainIDFromPositionToPosition.toStationPosition,
+        }) .then((res) => {
+            console.log(res.data[0].fare);
+            this.setFare(res.data[0].fare);
+        })
+        
+    };
 
-    changeCoachSeat(data) {
+    async changeCoachSeat(data) {
         this.props.setSelectedCoachID(parseInt(data));
 
         this.clearChosenSeatList();
 
-        Axios.post("http://localhost:3001/api/getSeatCount", {
+       await Axios.post("http://localhost:3001/api/getSeatCount", {
             trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
             coachID: data,
         })
@@ -252,7 +263,7 @@ export class TrainCoach extends Component {
                             coachID: this.props.selectedCoachID,
                             fromPosition: this.props.selectedTrainIDFromPositionToPosition.fromStationPosition,
                             toPosition: this.props.selectedTrainIDFromPositionToPosition.toStationPosition,
-                            date: this.props.journeyDate.split('T')[0],
+                            date: this.props.journeyDate.toString().slice(4,15),
                             seatID: i,
                         })
                     );
@@ -286,6 +297,7 @@ export class TrainCoach extends Component {
                     })
                 }
             })
+            await this.changeFare();
     }
 
     toggleSidebar = () => {
@@ -296,17 +308,22 @@ export class TrainCoach extends Component {
 
     async purchasePressed(event) {
         event.preventDefault();
-
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        if(this.state.chosenSeatList.length>this.props.noOfPassengers)
+        {alert("You have chosen more passengers")
+        return;
+        }
         await Axios.post("http://localhost:3001/api/addTicket", {
-            issueTime: '2021-10-29 05:40:30',
-            journeyTime: this.props.journeyDate.split('T')[0] + ' ' + this.state.departureTime,
+            issueTime: date+' '+today.getHours() + ":"  + today.getMinutes() + ":" + today.getSeconds(),
+            journeyTime: this.props.journeyDate.toString().slice(4,15) + ' ' + this.state.departureTime,
             startPositon: this.props.selectedTrainIDFromPositionToPosition.fromStationPosition,
             endPosition: this.props.selectedTrainIDFromPositionToPosition.toStationPosition,
             trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
             classID: this.state.coachClassID,
             coachID: this.props.selectedCoachID,
             noOfSeats: this.state.chosenSeatList.length,
-            fare: this.state.fare,
+            fare: this.state.fare*this.state.chosenSeatList.length,
             passengerID: this.props.passengerNid,
         })
             .then((res) => {
@@ -326,7 +343,7 @@ export class TrainCoach extends Component {
                 }
 
             })
-
+            this.setFare(this.state.fare*this.state.chosenSeatList.length);
 
         let objectList = [];
         for (var seat = 0; seat < this.state.chosenSeatList.length; seat++) {
@@ -341,8 +358,7 @@ export class TrainCoach extends Component {
                     let object = {
                         trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
                         coachID: this.props.selectedCoachID,
-                        date: this.props.journeyDate.split('T')[0],
-                        //date: '2021-10-29',
+                        date: this.props.journeyDate.toString().slice(4,15),
                         startPositon: f,
                         endPosition: t,
                         seatNo: this.state.chosenSeatList[seat],
@@ -359,6 +375,7 @@ export class TrainCoach extends Component {
         })
         .then((res) => {
             this.props.history.push({ pathname: '/home-user' });
+            window.location.href='/home-user'
         })
 
     };
@@ -397,7 +414,7 @@ export class TrainCoach extends Component {
 
                         <InfoDiv>
                             <label style={this.state.styleLabel}>Journey Date:</label>
-                            <text style={this.state.styleText}>{this.props.journeyDate}</text>
+                            <text style={this.state.styleText}>{this.state.journeydate.toString().slice(0,15)}</text>
                         </InfoDiv>
 
                         <InfoDiv>
@@ -430,7 +447,7 @@ export class TrainCoach extends Component {
                     <div style={this.state.styleClassFare}>
                         <text style={this.state.styleText}>Class: {this.state.coachClassName}</text>
 
-                        <text style={this.state.styleText}>Fare: {this.state.fare}</text>
+                        <text style={this.state.styleText}>Fare for 1 ticket: {this.state.fare}</text>
                     </div>
 
                     <Container3>

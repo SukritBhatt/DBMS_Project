@@ -16,7 +16,7 @@ export class TrainCoachClerk extends Component {
             trainName: "",
             fromStationName: "",
             toStationName: "",
-            fare: 10,
+            fare: 0,
             departureTime: "",
             noOfCoaches: 0,
             coachList: [],
