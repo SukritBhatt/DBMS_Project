@@ -33,7 +33,7 @@ export default class StationListContainer extends Component {
 
     deleteStationPressed = event => {
         event.preventDefault();
-
+        this.props.deleteItem(this.props.item.Name);
 
         Axios.post("http://localhost:3001/api/deleteStation", {
             station_name: this.props.item.Name,

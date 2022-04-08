@@ -80,6 +80,8 @@ class StationList extends Component {
 
 
         this.setIsAddStationContainerOpen = this.setIsAddStationContainerOpen.bind(this);
+        this.updateItem = this.updateItem.bind(this);
+        this.deleteItem = this.deleteItem.bind(this);
     }
 
 
@@ -92,7 +94,20 @@ class StationList extends Component {
 
     };
 
+    itemsRemove(value) {
+        return this.state.items.filter(function(element){
+            return element.Name != value;
+        });
+      
+     }
 
+    updateItem(object) {
+        this.setState({ items: [...this.state.items, ...[object]]})
+    }
+
+    deleteItem(objectname) {
+        this.setState({items: this.itemsRemove(objectname)})
+    }
 
     setIsAddStationContainerOpen() {
         this.setState({
@@ -121,6 +136,7 @@ class StationList extends Component {
                         return <StationListContainer
                             key={index}
                             item={item}
+                            deleteItem = {this.deleteItem}
                         />
                     })}
 
@@ -128,7 +144,7 @@ class StationList extends Component {
 
                 <Button onClick={this.addNewStation}>Add New Station</Button>
 
-                {this.state.isAddStationContainerOpen && <AddStationContainer setIsAddStationContainerOpen={this.setIsAddStationContainerOpen} isAddStationContainerOpen={this.state.isAddStationContainerOpen} />}
+                {this.state.isAddStationContainerOpen && <AddStationContainer setIsAddStationContainerOpen={this.setIsAddStationContainerOpen} isAddStationContainerOpen={this.state.isAddStationContainerOpen} updateItem = {this.updateItem} />}
 
             </div>
 
