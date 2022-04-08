@@ -117,7 +117,7 @@ export default class JourneyUserContainer extends Component {
 
                     <tr style={this.state.styleRow}>
                         <td style={this.state.styleCol1}>Issue Date and Time:</td>
-                        <td style={this.state.styleCol2} >{this.props.item.Issue_time}</td>
+                        <td style={this.state.styleCol2} >{this.props.item.Issue_time.toString().slice(0, 19).replace('T', ' ')}</td>
                     </tr>
 
                 </Table>
