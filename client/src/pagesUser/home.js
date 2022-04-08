@@ -9,11 +9,9 @@ export default class Home extends Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
             isSidebarOpen: false,
         }
-
         this.toggleSidebar = this.toggleSidebar.bind(this);
     }
 

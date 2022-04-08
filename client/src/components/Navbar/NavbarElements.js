@@ -13,12 +13,24 @@ export const Nav = styled.nav`
     position: fixed;
 `;
 
-export const Title = styled.div`
+/* export const SubTitle = styled.div`
     color: #fff;
-    display: flex;
+    display: inline-block;
+    flex-direction: row;
     align-items: center;
     text-decoration: none;
     padding: 0 1rem;
+    height: 100%;
+    cursor: pointer;
+
+`; */
+
+export const Title = styled.div`
+    color: #fff;
+    display: inline-block;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 0.1rem;
     height: 100%;
     cursor: pointer;
 
@@ -26,15 +38,12 @@ export const Title = styled.div`
 
 export const NavLink = styled(Link)`
     color: #fff;
-    
     align-items: center;
     text-decoration: none;
     padding: 0 1rem;
     height: 100%;
     cursor: pointer;
-
     display: flex;
-
     &.active {
         color: #fff;
         border-bottom: 3px solid #fff;
