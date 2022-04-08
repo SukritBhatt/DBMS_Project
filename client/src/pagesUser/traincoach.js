@@ -375,7 +375,7 @@ export class TrainCoach extends Component {
         })
         .then((res) => {
             this.props.history.push({ pathname: '/home-user' });
-            window.location.href='/home-user'
+            window.location.href='/print-ticket'
         })
 
     };
