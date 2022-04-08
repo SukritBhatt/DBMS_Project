@@ -458,7 +458,7 @@ app.post("/api/addNewTrain", (req, res) => {
 
 app.post("/api/addTicket", (req, res) => {
 
-    const issueTime = '2021-11-07 11:15:30'
+    const issueTime = req.body.issueTime
     const journeyTime = req.body.journeyTime
     const startPositon = req.body.startPositon
     const endPosition = req.body.endPosition

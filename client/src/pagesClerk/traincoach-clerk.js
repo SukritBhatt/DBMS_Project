@@ -254,7 +254,7 @@ export class TrainCoachClerk extends Component {
                             coachID: this.props.selectedCoachID,
                             fromPosition: this.props.selectedTrainIDFromPositionToPosition.fromStationPosition,
                             toPosition: this.props.selectedTrainIDFromPositionToPosition.toStationPosition,
-                            date: this.props.journeyDate.toString().split('T')[0],
+                            date: this.props.journeyDate.toString().slice(4,15),
                             seatID: i,
                         })
                     );
@@ -307,16 +307,17 @@ export class TrainCoachClerk extends Component {
         {alert("You have chosen more passengers")
         return;
         }
+        
         await Axios.post("http://localhost:3001/api/addTicket", {
-            issueTime: date,
-            journeyTime: this.props.journeyDate.toString().split('T')[0] + ' ' + this.state.departureTime,
+            issueTime: date+' '+today.getHours() + ":"  + today.getMinutes() + ":" + today.getSeconds(),
+            journeyTime: this.props.journeyDate.toString().slice(4,15) + ' ' + this.state.departureTime,
             startPositon: this.props.selectedTrainIDFromPositionToPosition.fromStationPosition,
             endPosition: this.props.selectedTrainIDFromPositionToPosition.toStationPosition,
             trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
             classID: this.state.coachClassID,
             coachID: this.props.selectedCoachID,
             noOfSeats: this.state.chosenSeatList.length,
-            fare: this.state.fare,
+            fare: this.state.fare*this.state.chosenSeatList.length,
             passengerID: this.props.passengerNid,
         })
             .then((res) => {
@@ -338,6 +339,7 @@ export class TrainCoachClerk extends Component {
             })
             this.setFare(this.state.fare*this.state.chosenSeatList.length);
 
+           
             let objectList = [];
             for (var seat = 0; seat < this.state.chosenSeatList.length; seat++) {
                 //alert(this.state.chosenSeatList[seat]);
@@ -351,7 +353,7 @@ export class TrainCoachClerk extends Component {
                         let object = {
                             trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
                             coachID: this.props.selectedCoachID,
-                            date: this.props.journeyDate.toString().split('T')[0],
+                            date: this.props.journeyDate.toString().slice(4,15),
                             startPositon: f,
                             endPosition: t,
                             seatNo: this.state.chosenSeatList[seat],
@@ -405,7 +407,7 @@ export class TrainCoachClerk extends Component {
 
                         <InfoDiv>
                             <label style={this.state.styleLabel}>Journey Date:</label>
-                            <text style={this.state.styleText}>{this.state.journeydate.toString()}</text>
+                            <text style={this.state.styleText}>{this.state.journeydate.toString().slice(0,15)}</text>
                         
                         </InfoDiv>
 
