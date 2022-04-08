@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {
     Nav,
+    SubTitle,
     Title,
     Bars,
     NavLink,
@@ -18,8 +19,12 @@ export default class Navbar extends Component {
         return (
             <>
                 <Nav>
+                    {/* <SubTitle>
+                        <h5>Welcome to Hindustan Railways</h5>
+                    </SubTitle> */}
                     <Title>
-                        <h3>Railway E-Ticketing Service</h3>
+                        <h5>Welcome to Hindustan Railways</h5>
+                        <h3>E-Ticketing Portal</h3>
                     </Title>
                     <Bars onClick={this.props.toggleSidebar} />
                     <NavMenu>

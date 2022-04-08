@@ -2,51 +2,49 @@ import React from 'react'
 import { Container, Logo, LogoAndTextBox, TextBox } from './HomeInfoDivElements'
 
 const HomeInfoDiv = () => {
-
     const styleSmallText = {
         fontSize: 13,
     }
     const styleLargeText = {
         fontSize: 19,
     }
-
     return (
         <Container>
             <LogoAndTextBox>
-                <Logo src={`tag.png`}/>
+                <Logo src={`securepayments.png`}/>
                 <TextBox>
                     <h2  style={styleLargeText}>
-                    Get Train Tickets from the comfort of your home
+                        Secure payments, hassle-free cancellations and easy refunds
                     </h2>
                     <br></br>
                     <text style={styleSmallText}>
-                    Book train tickets from anywhere using the robust ticketing platform exclusively built to provide the passengers with pleasant ticketing experience. Also check out the mobile app RailSheba to further extend your pleasure of booking train tickets.
+                        Perform all transactions securely and quickly with our globally trusted payment partners. Claim refunds and cancel tickets without hassel. Visa, MasterCard ann Rupay cards enjoy platform-wide support on all services.
                     </text>
                 </TextBox>
             </LogoAndTextBox>
 
             <LogoAndTextBox>
-                <Logo src={`clock.png`}/>
+                <Logo src={`railwayservices.png`}/>
                 <TextBox>
                     <h2 style={styleLargeText}>
-                    Train & Ticketing related information at your fingertips
+                        Exhaustive range of railway services<br></br>Just a click away
                     </h2>
                     <br></br>
                     <text style={styleSmallText}>
-                    Checkout available seats, route information, fare information on real time basis with Esheba Platform.
+                        Check train schedules, book seats, verify tickets and plan your journey all from one place. Users can Login on the portal to enjoy seamless service throughout the platform.
                     </text>
                 </TextBox>
             </LogoAndTextBox>
 
             <LogoAndTextBox>
-                <Logo src={`lock.png`}/>
+                <Logo src={`bizpartners.png`}/>
                 <TextBox>
                     <h2 style={styleLargeText}>
-                    Pay Securely
+                        Uplift your travel experience with our travel partners
                     </h2>
                     <br></br>
                     <text style={styleSmallText}>
-                    Pay using your convenient payment option. Bangladesh Railway supports Visa, Master, Amex & Nexus Cards, Rocket and bKash Mobile Financial Services for your convenience.
+                        Explore unmatched added services at discounted rates. Get combo travel and hotel deals with ITC. Order food on or off the rails via IRCTC. Track your train with MapmyIndia. All of this, at one place, brought to you by Hindustan Rails.
                     </text>
                 </TextBox>
             </LogoAndTextBox>

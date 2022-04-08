@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 
-
 export const Container = styled.div`
-
     background-color: rgba(41,38,38,.85);
-
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -19,7 +16,6 @@ export const Container = styled.div`
 `;
 
 export const SpaceContainer = styled.div`
-
     display: flex;
     align-items: center;
     padding: 0px 0px 30px 0px;
@@ -27,8 +23,27 @@ export const SpaceContainer = styled.div`
     width: 5%;
 `;
 
-export const InputContainerLeft = styled.div`
+export const LeftHalf = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+    padding: 0px 0px 30px 0px;
+    margin: 0px;
+    width: 50%;
+`;
 
+export const RightHalf = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+    padding: 0px 0px 30px 0px;
+    margin: 0px;
+    width: 50%;
+`;
+
+export const InputContainerLeft = styled.div`
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -39,7 +54,6 @@ export const InputContainerLeft = styled.div`
 `;
 
 export const InputContainerRight = styled.div`
-
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -49,11 +63,11 @@ export const InputContainerRight = styled.div`
     width: 42.5%;
 `;
 
-export const Select = styled.select`
+/* export const Select = styled.select`
     width: 100%;
     padding: 9px 0px 9px 0px;
     font-size: 16px;
-`;
+`; */
 
 export const Heading = styled.div`
     background: #102f63;
@@ -76,7 +90,6 @@ export const Table = styled.table`
     }
 `;
 
-
 export const Button = styled.button`
     background: #102f63;
     color: white;
@@ -85,5 +98,4 @@ export const Button = styled.button`
     cursor: pointer;
     border-radius:10px 10px 10px 10px;
     border: 2px solid #102f63;
-
 `;

@@ -12,10 +12,10 @@ export default class Header extends Component {
         return (
             <Container>
 
-                <TextBox>
-                    <h1>Welcome to <br/>Railway <br/>E-Ticketing Service</h1>
+               {/*  <TextBox>
+                    <h1>Welcome to <br/>Hindustan Railways<br/>E-Ticketing Portal</h1>
                 </TextBox>
-
+ */}
                 <FindCardBox>
                     <FindCard
                     setPassengerMail={this.props.setPassengerMail} 
@@ -39,9 +39,7 @@ export default class Header extends Component {
                     />
                 </FindCardBox>
                 
-                
             </Container>
         )
     }
 }
-

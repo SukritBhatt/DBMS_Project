@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-
 export const Container = styled.div`
     background: #fff;
     display: flex;
@@ -24,7 +23,6 @@ export const LogoAndTextBox = styled.div`
     justify-content: space-between;
     flex-direction: row;
     width: 32%;
-
     padding: 40px 0px 0px 0px;
 
     @media (max-width: 768px) {
@@ -38,13 +36,9 @@ export const Logo = styled.div`
     background-image: url(${({ src }) => src});
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    
-    width: 20px;
-    height: 20px;
-    @media (max-width: 768px) {
-        
-    }
+    background-size: contain;
+    width: 35px;
+    height: 35px;
 `;
 
 export const TextBox = styled.div`
