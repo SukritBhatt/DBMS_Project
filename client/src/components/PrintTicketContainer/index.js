@@ -3,8 +3,6 @@ import { withRouter } from 'react-router';
 import { Container2, Heading, UserInfoContainer, Container1, Container3, InfoDiv, Button } from '../PrintTicketContainer/PrintTicketContainerElements'
 import Axios from 'axios'
 import JourneyUserContainer from '../../components/JourneyUserContainer';
-import { FaWindows } from 'react-icons/fa';
-import $ from "jquery";
 
 class PrintTicketContainer extends Component {
 
