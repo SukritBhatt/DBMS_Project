@@ -153,8 +153,11 @@ class TrainInfoContainer extends Component {
 
         if(this.props.clerkID != 0)
         this.props.history.push({ pathname: '/traincoach-clerk' });
-        else 
-        this.props.history.push({ pathname: '/traincoach' });
+        else if(this.props.passengerMail)
+        {console.log(this.props.passengerMail);
+        this.props.history.push({ pathname: '/traincoach' });}
+        else
+        alert("Please login to book tickets");
     };
 
 
