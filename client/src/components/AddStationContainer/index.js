@@ -41,6 +41,12 @@ class AddStationContainer extends Component {
 
     addPressed = event => {
         event.preventDefault();
+        var object = {
+            Name: this.state.stationName,
+            District: this.state.stationDistrict,
+        };
+
+        this.props.updateItem(object);
 
         Axios.post("http://localhost:3001/api/addNewStation", {
             station_name: this.state.stationName,
@@ -50,7 +56,7 @@ class AddStationContainer extends Component {
                 if (res.data.isValid) {
                     alert("Station Added Successfully!");
                 } else {
-                    alert("Staion already exits!");
+                    alert("Staion already exists!");
                 }
             })
 

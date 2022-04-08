@@ -264,9 +264,10 @@ app.post("/api/getDownTime", (req, res) => {
 app.post("/api/getCoachesCount", (req, res) => {
 
     const trainID = req.body.trainID
+    const classID=req.body.classID
 
-    const sqlSelectPassenger = "SELECT No_of_coaches FROM train WHERE Train_ID = ?"
-    db.query(sqlSelectPassenger, [trainID], (err, result) => {
+    const sqlSelectPassenger = "SELECT coach_id FROM train_coach WHERE Train_ID = ? and class_id = ?"
+    db.query(sqlSelectPassenger, [trainID,classID], (err, result) => {
         return res.json(result);
     });
 
@@ -456,7 +457,7 @@ app.post("/api/addNewTrain", (req, res) => {
 
 app.post("/api/addTicket", (req, res) => {
 
-    const issueTime = '2021-11-07 11:15:30'
+    const issueTime = req.body.issueTime
     const journeyTime = req.body.journeyTime
     const startPositon = req.body.startPositon
     const endPosition = req.body.endPosition

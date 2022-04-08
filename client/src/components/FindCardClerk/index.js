@@ -170,7 +170,7 @@ class FindCardClerk extends Component {
                     onChange={date => this.setSelectedDate(date)}
                     dateFormat='yyyy-MM-dd'
                     minDate={new Date()}
-                    maxDate={new Date(new Date().getTime()+(1*24*60*60*1000))}
+                    maxDate={new Date(new Date().getTime()+(90*24*60*60*1000))}
                     />
                 </InputContainerLeft>
                 <SpaceContainer />
