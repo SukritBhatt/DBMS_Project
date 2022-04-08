@@ -120,6 +120,11 @@ export default class JourneyUserContainer extends Component {
                         <td style={this.state.styleCol2} >{this.props.item.Issue_time.toString().slice(0, 19).replace('T', ' ')}</td>
                     </tr>
 
+                    <tr style={this.state.styleRow}>
+                        <td style={this.state.styleCol1}>Fare:</td>
+                        <td style={this.state.styleCol2} >{this.props.item.Fare}</td>
+                    </tr>
+
                 </Table>
             </Container>
         )

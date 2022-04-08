@@ -22,6 +22,7 @@ import HomeClerk from './pagesClerk/clerk-home'
 import TrainListClerk from './pagesClerk/trainlist-clerk'
 import { TrainCoachClerk } from './pagesClerk/traincoach-clerk'
 import Trains from './pagesAdmin/trains'
+import PrintTicket from './components/PrintTicket'
 
 class App extends Component {
 
@@ -890,6 +891,32 @@ class App extends Component {
             )}
           />
 
+          <Route exact path='/print-ticket'
+            render={props => (
+              <div>
+                {this.state.passengerMail != "" && 
+                  <PrintTicket {...props}
+                  history={this.props.history}
+                  setPassengerMail={this.setPassengerMail}
+                  passengerMail={this.state.passengerMail}
+                  setPassengerNid={this.setPassengerNid}
+                  passengerNid={this.state.passengerNid}
+                  setPassengerName={this.setPassengerName}
+                  passengerName={this.state.passengerName}
+                  setPassengerMobile={this.setPassengerMobile}
+                  passengerMobile={this.state.passengerMobile}
+                  setPassengerPassword={this.setPassengerPassword}
+                  passengerPassword={this.state.passengerPassword}
+                />
+                }
+
+                {this.state.passengerMail == "" && 
+                  <Redirect to="/login" />
+                }
+              </div>
+              
+            )}
+          />
 
         </Switch>
 

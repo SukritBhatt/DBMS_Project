@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router';
-import { Container2, Heading, UserInfoContainer, Container1, InfoDiv } from '../DashboardUserContainer/DashboardUserContainerElements'
+import { Container2, Heading, UserInfoContainer, Container1, InfoDiv } from '../PrintTicketContainer/PrintTicketContainerElements'
 import Axios from 'axios'
-import JourneyUserContainer from '../JourneyUserContainer';
+import JourneyUserContainer from '../../components/JourneyUserContainer';
 
-class DashboardUserContainer extends Component {
+class PrintTicketContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -47,7 +47,8 @@ class DashboardUserContainer extends Component {
             nid: this.props.passengerNid,
         })
         .then((res) => {
-            for(var i in res.data) {
+            // for(var i in res.data) {
+                let i= res.data.length -1
                 var object = {
                     Ticket_ID:  res.data[i].Ticket_ID,
                     Train_ID: res.data[i].Train_ID,
@@ -61,7 +62,7 @@ class DashboardUserContainer extends Component {
                 };
 
                 this.setState({ items: [...this.state.items, ...[object] ] })
-            }
+            // }
         })
 
         this.loginPressed = this.loginPressed.bind(this);
@@ -141,7 +142,7 @@ class DashboardUserContainer extends Component {
 
                 <Container2>
                     <Heading>
-                        <h2 style={this.state.styleHeading}>Upcoming Journeys</h2>
+                        <h2 style={this.state.styleHeading}>Ticket</h2>
                     </Heading>
 
                     {this.state.items.map((item,index)=>{
@@ -159,5 +160,5 @@ class DashboardUserContainer extends Component {
     }
 }
 
-export default withRouter(DashboardUserContainer)
+export default withRouter(PrintTicketContainer)
 

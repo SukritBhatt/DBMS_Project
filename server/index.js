@@ -75,7 +75,7 @@ app.post("/api/getPassengerJourneys", (req, res) => {
 
     const nid = req.body.nid
 
-    const sqlSelectPassenger = "SELECT Ticket_ID, Train_ID, Coach_ID, No_of_seats, Start_position, End_position, Journey_time, Issue_time FROM ticket WHERE  Passenger_ID = ?"
+    const sqlSelectPassenger = "SELECT Ticket_ID, Train_ID, Coach_ID, No_of_seats, Start_position, End_position, Journey_time, Issue_time, Fare FROM ticket WHERE  Passenger_ID = ?"
     db.query(sqlSelectPassenger, [nid], (err, result) => {
         return res.json(result);
     });
