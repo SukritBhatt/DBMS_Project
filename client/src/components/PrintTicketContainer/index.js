@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router';
-import { Container2, Heading, UserInfoContainer, Container1, InfoDiv } from '../PrintTicketContainer/PrintTicketContainerElements'
+import { Container2, Heading, UserInfoContainer, Container1, Container3, InfoDiv, Button } from '../PrintTicketContainer/PrintTicketContainerElements'
 import Axios from 'axios'
 import JourneyUserContainer from '../../components/JourneyUserContainer';
+import { FaWindows } from 'react-icons/fa';
+import $ from "jquery";
 
 class PrintTicketContainer extends Component {
 
@@ -66,8 +68,8 @@ class PrintTicketContainer extends Component {
         })
 
         this.loginPressed = this.loginPressed.bind(this);
-
         this.setEmail = this.setEmail.bind(this);
+        this.printDiv = this.printDiv.bind(this);
         this.setPassword = this.setPassword.bind(this);
     }
 
@@ -108,9 +110,19 @@ class PrintTicketContainer extends Component {
         })
     }
 
+    printDiv() {
+        var printContents = document.getElementById('printTicket').innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        
+        document.body.innerHTML = originalContents;
+   }
+
     render() {
         return (
-            <div>
+        <div id="parentContainer">
+            <div id="printTicket">
 
                 <Container1>
                     <Heading>
@@ -138,8 +150,9 @@ class PrintTicketContainer extends Component {
                             <text style={this.state.styleText}>0{parseInt(this.props.passengerMobile)}</text>
                         </InfoDiv>
                     </UserInfoContainer>
+                    {/* <input type="button" onclick={() => console.log("printing")} value="practice" /> */}
                 </Container1>
-
+                
                 <Container2>
                     <Heading>
                         <h2 style={this.state.styleHeading}>Ticket</h2>
@@ -151,11 +164,12 @@ class PrintTicketContainer extends Component {
                                 item={item}
                                 />
                     })}
-
                 </Container2>
-
             </div>
-            
+            <Container3>
+                <Button  onClick={this.printDiv}>Print Ticket</Button>
+            </Container3>
+        </div>
         )
     }
 }

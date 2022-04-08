@@ -23,6 +23,27 @@ export const Container1 = styled.div`
     }
 `;
 
+export const Container3 = styled.div`
+    background: #fff;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+
+    border-radius:10px 10px 10px 10px;
+    border: 2px solid #a4b0af;
+
+    flex-direction: column;
+    width: 90%;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        width: 90%;
+    }
+`;
+
 export const Heading = styled.div`
     background: #102f63;
     align-items: center;
