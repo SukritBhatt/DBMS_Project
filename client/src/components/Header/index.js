@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, TextBox, FindCardBox } from './HeaderElements'
+import { Container, FindCardBox } from './HeaderElements'
 import FindCard from '../FindCard'
 
 export default class Header extends Component {
@@ -12,10 +12,6 @@ export default class Header extends Component {
         return (
             <Container>
 
-               {/*  <TextBox>
-                    <h1>Welcome to <br/>Hindustan Railways<br/>E-Ticketing Portal</h1>
-                </TextBox>
- */}
                 <FindCardBox>
                     <FindCard
                     setPassengerMail={this.props.setPassengerMail} 

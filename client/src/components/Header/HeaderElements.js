@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-
 export const Container = styled.div`
     /*background-image: url("headerBackground.jpg");*/
     background-image: url("bgimg.jpg");
@@ -16,18 +15,6 @@ export const Container = styled.div`
     width: 100%;
     @media (max-width: 768px) {
         flex-direction: column;
-    }
-`;
-
-export const TextBox = styled.div`
-    justify-content: center;
-    width: 40%;
-    align-items: center;
-    text-align: center;
-    padding: 0px 5px 0px 5px;
-    color: #000000;
-    @media (max-width: 768px) {
-        width: 60%;
     }
 `;
 
