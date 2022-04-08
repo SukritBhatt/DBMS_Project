@@ -1,6 +1,5 @@
 import React from 'react'
-import { Container, Table, Heading } from './ContactTableElements'
-
+import { MegaContainer, Container, Logo, Table, Heading } from './ContactTableElements'
 
 const ContactTable = () => {
 
@@ -16,55 +15,98 @@ const ContactTable = () => {
     }
 
     const styleTdBorder = {
+        justify: "center",
+        valign: "middle",
         borderBottom: "1px solid #a4b0af",
         borderRight: "1.5px solid #a4b0af",
         padding: "10px 10px 10px 10px",
-
     }
-  //Future
 
     return (
-        <Container>
-            <Heading>
-                <h2 style={styleHeading}>Contact Us</h2>
-            </Heading>
+        <MegaContainer>
+            <Container>
+                <Heading>
+                    <h2 style={styleHeading}>Technical Issues</h2>
+                </Heading>
+                <Table style={styleTable}>
+                    <tr>
+                        <td style={styleTdBorder}>Trouble logging in?</td>
+                        <td style={styleTdBorder}>
+                            <Logo src={`mailto.png`}/>
+                            tech-help@hindrail.com
+                        </td>
+                        <td style={styleTdBorder}>
+                            <Logo src={`phone.png`}/>
+                            0755 661 0661
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style={styleTdBorder}>Unsuccessful payments/refunds</td>
+                        <td style={styleTdBorder}>
+                            <Logo src={`mailto.png`}/>
+                            payment-help@hindrail.com
+                        </td>
+                        <td style={styleTdBorder}>
+                            <Logo src={`phone.png`}/>
+                            0755 778 6698
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style={styleTdBorder}>Site down or bugs?</td>
+                        <td style={styleTdBorder}>
+                            <Logo src={`mailto.png`}/>
+                            site-help@hindrail.com
+                        </td>
+                        <td style={styleTdBorder}>
+                            <Logo src={`phone.png`}/>
+                            0755 335 7788
+                        </td>
+                    </tr>
+                </Table>
+            </Container >
 
-            <Table style={styleTable}>
-                <tr>
-                    <td rowspan="3" style={styleTdBorder}>For refund of unsuccessful purchases and card charging issues</td>
-                    <td  style={styleTdBorder}>VISA/MASTER Cards</td>
-                    <td  style={styleTdBorder}>N/A</td>
-                </tr>
-                
-                <tr>
-                    <td style={styleTdBorder}>bKash</td>
-                    <td  style={styleTdBorder}>16247</td>
-                </tr>
+            <Container>
+                <Heading>
+                    <h2 style={styleHeading}>Train Complaints</h2>
+                </Heading>
 
-                <tr>
-                    <td style={styleTdBorder}>Rocket / DBBL Nexus Cards</td>
-                    <td  style={styleTdBorder}>16216</td>
-                </tr>
-                
-                <tr>
-                    <td style={styleTdBorder}>For refund of successfully purchased tickets</td>
-                    <td colspan="2"  style={styleTdBorder}>Visit your originating station ( Name of the Station From which you wanted to travel ) and contact the refund counter</td>
-                </tr>
-
-                <tr>
-                    <td style={styleTdBorder}>For Technical Support</td>
-                    <td style={styleTdBorder}>Tech Support Team</td>
-                    <td  style={styleTdBorder}>
-                        railway-eticket@gmail.com
-                        <br></br>
-                        +880-1234567890
-                    </td>
-                </tr>
-            </Table>
-
-
-
-        </Container >
+                <Table style={styleTable}>
+                    <tr>
+                        <td style={styleTdBorder}>Hygiene/Sanitation Complaints</td>
+                        <td style={styleTdBorder}>
+                            <Logo src={`mailto.png`}/>
+                            train-sanitation@hindrail.com
+                        </td>
+                        <td style={styleTdBorder}>
+                            <Logo src={`phone.png`}/>
+                            0998 133 7701
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style={styleTdBorder}>Housekeeping Complaints</td>
+                        <td style={styleTdBorder}>
+                            <Logo src={`mailto.png`}/>
+                            train-housekeep@hindrail.com
+                        </td>
+                        <td style={styleTdBorder}>
+                            <Logo src={`phone.png`}/>
+                            0998 553 7702
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style={styleTdBorder}>Other Complaints</td>
+                        <td style={styleTdBorder}>
+                            <Logo src={`mailto.png`}/>
+                            train-help@hindrail.com
+                        </td>
+                        <td style={styleTdBorder}>
+                            <Logo src={`phone.png`}/>
+                            0998 229 7703
+                        </td>
+                    </tr>
+                </Table>
+            </Container >
+        </MegaContainer>
     )
 }
 
