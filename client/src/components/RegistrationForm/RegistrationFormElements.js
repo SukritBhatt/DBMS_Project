@@ -43,10 +43,10 @@ export const MessageBox = styled.div`
 `;
 
 export const Heading = styled.div`
-    background: #1c0bb2;
+    background: #20129d;
     align-items: center;
     border-radius: 8px 8px 0px 0px;
-    border: 4px solid #11095a;
+    border: 2px solid #11095a;
     justify-content: center;
     padding: 10px;
     margin: auto;
@@ -68,7 +68,7 @@ export const Form = styled.form`
 `;
 
 export const NavLink = styled(Link)`
-    color: #0099ff;
+    color: #20129d;
     display: flex;
     text-decoration: none;
     padding: 10px 0px 0px 0px;
@@ -77,7 +77,7 @@ export const NavLink = styled(Link)`
 `;
 
 export const Button = styled.button`
-    background: #1c0bb2;
+    background: #20129d;
     color: white;
     width: 100%;
     max-width: 150px;
@@ -87,7 +87,10 @@ export const Button = styled.button`
     }
     cursor: pointer;
     border-radius:10px 10px 10px 10px;
-    border: 3px solid #11095a;
+    border: 2px solid #11095a;
+    &:hover{
+        background: #3399ff;
+    }
 `;
 
 export const ButtonAndNavLinkBox = styled.div`

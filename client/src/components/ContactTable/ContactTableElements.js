@@ -21,7 +21,7 @@ export const Container = styled.div`
     background-size: cover;
     display: flex;
     align-items: center;
-    padding: 5vh 0 5vh 0;
+    padding: 5vh 0 2vh 0;
     flex-direction: column;
     margin: auto;
     width: 80%;
@@ -48,12 +48,12 @@ export const td = styled.div`
 `;
 
 export const Heading = styled.div`
-    background: #102f63;
+    background: #20129d;
     align-items: center;
-    border-radius:7px 7px 0px 0px;
-    border: 5px solid #102f63;
+    border-radius: 8px 8px 0px 0px;
+    border: 2px solid #11095a;
     justify-content: center;
-    padding: 10px 0px 10px 0px;
+    padding: 5px 0px 0 0px;
     margin: auto;
     width: 100%;
 `;

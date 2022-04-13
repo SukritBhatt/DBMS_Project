@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import NavbarUser from '../components/NavbarUser'
 import SidebarUser from '../components/SidebarUser'
+import DeveloperSign from '../components/DeveloperSign'
 import TicketVerification from '../components/TicketVerification';
 
 export default class VerifyTicket extends Component {
@@ -36,10 +37,13 @@ export default class VerifyTicket extends Component {
 
     render() {
         return (
-            <div style={this.state.style}>
-                <SidebarUser isSidebarOpen={this.state.isSidebarOpen} toggleSidebar={this.toggleSidebar}  setPassengerMail={this.props.setPassengerMail} passengerMail={this.props.passengerMail} />
-                <NavbarUser toggleSidebar={this.toggleSidebar} setPassengerMail={this.props.setPassengerMail} passengerMail={this.props.passengerMail}  />
-                <TicketVerification message={this.state.message} setMessage={this.setMessage} />
+            <div>
+                <div style={this.state.style}>
+                    <SidebarUser isSidebarOpen={this.state.isSidebarOpen} toggleSidebar={this.toggleSidebar}  setPassengerMail={this.props.setPassengerMail} passengerMail={this.props.passengerMail} />
+                    <NavbarUser toggleSidebar={this.toggleSidebar} setPassengerMail={this.props.setPassengerMail} passengerMail={this.props.passengerMail}  />
+                    <TicketVerification message={this.state.message} setMessage={this.setMessage} />
+                </div>
+                <DeveloperSign />
             </div>
         )
     }

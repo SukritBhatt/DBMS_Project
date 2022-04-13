@@ -40,9 +40,6 @@ class LoginForm extends Component {
                 borderStyle: "none",
                 height: "1vw",
             },
-            styledev: {
-                float: "bottom",
-            },
         }
 
         this.loginPressed = this.loginPressed.bind(this);
@@ -144,7 +141,7 @@ class LoginForm extends Component {
                         </Form>
                     </Container>
                 </div>
-                <DeveloperSign style={this.state.styledev}/>
+                <DeveloperSign/>
             </div>
         )
     }

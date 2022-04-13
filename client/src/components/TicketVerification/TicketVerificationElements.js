@@ -5,17 +5,13 @@ export const Container = styled.div`
     background: #fff;
     display: flex;
     align-items: center;
-    
     margin-top: ${({ message }) => (message != "" ? '70px' : '150px')};
-
     margin-bottom: auto;
     margin-left: auto;
     margin-right: auto;
     justify-content: space-between;
-
     border-radius:10px 10px 10px 10px;
-    border: 2px solid #a4b0af;
-
+    border: 2px solid #11095a;
     flex-direction: column;
     width: 60%;
     @media (max-width: 768px) {
@@ -23,7 +19,6 @@ export const Container = styled.div`
         width: 80%;
     }
 `;
-
 
 export const MessageBox = styled.div`
     background: ${({ message }) => (message == "The Ticket is Valid" ? '#9de371' : '#fc5353')};
@@ -35,25 +30,23 @@ export const MessageBox = styled.div`
     margin-left: auto;
     margin-right: auto;
     justify-content: center;
-
     border-radius:5px 5px 5px 5px;
     border: 2px solid transparent;
-
     flex-direction: column;
     width: fit-content;
     padding: 10px 20px 10px 20px;
     @media (max-width: 768px) {
         flex-direction: column;
-        //width: 80%;
+        width: 80%;
     }
 `;
 
 
 export const Heading = styled.div`
-    background: #102f63;
+    background: #20129d;
     align-items: center;
     border-radius:7px 7px 0px 0px;
-    border: 5px solid #102f63;
+    border: 2px solid #11095a;
     justify-content: center;
     padding: 10px 0px 10px 0px;
     margin: auto;
@@ -61,19 +54,21 @@ export const Heading = styled.div`
 `;
 
 export const Button = styled.button`
-    background: #102f63;
+    background: #20129d;
     color: white;
-    width: 100%;
     max-width: 150px;
+    justify-content: center;
     height: 40px;
     @media (max-width: 768px) {
         width: 35%;
     }
     cursor: pointer;
     border-radius:10px 10px 10px 10px;
-    border: 2px solid #102f63;
+    border: 2px solid #11095a;
     align-items: center;
-
+    &:hover{
+        background: #3399ff;
+    }
 `;
 
 export const Form = styled.form`
@@ -84,8 +79,6 @@ export const Form = styled.form`
     flex-direction: column;
     margin: auto;
     width: 55%;
-
-
     @media (max-width: 768px) {
         flex-direction: column;
         width: 70%;
@@ -93,7 +86,7 @@ export const Form = styled.form`
 `;
 
 export const NavLink = styled(Link)`
-    color: #0099ff;
+    color: #20129d;
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -102,5 +95,3 @@ export const NavLink = styled(Link)`
     cursor: pointer;
 
 `;
-
-

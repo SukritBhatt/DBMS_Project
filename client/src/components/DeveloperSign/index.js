@@ -16,7 +16,7 @@ export default class DeveloperSign extends Component {
                 </Text>
                 <Text>
                     <Logo src={`sponsor.jpg`}/>
-                    In collaboration with CRIS and NIC
+                    In collaboration with INDCloud and ValleySoft
                 </Text>
             </Container>
         )
