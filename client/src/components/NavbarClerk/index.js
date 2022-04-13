@@ -18,7 +18,6 @@ class NavbarClerk extends Component {
 
     logoutPressed = event => {
         event.preventDefault();
-        this.props.setClerkID(0);
         this.props.history.push("/clerk-login");
     }
 
