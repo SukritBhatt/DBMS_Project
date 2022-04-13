@@ -189,18 +189,18 @@ VALUES (1, 1), (1, 2),
 (4, 2);
 
 
-create table `railway_management_database`.train_revinue(
+create table `railway_management_database`.train_revenue(
   `Train_ID` INT NOT NULL,
   `Book_date` DATE NOT NULL,
-  `Revinue` INT NOT NULL,
+  `revenue` INT NOT NULL,
   PRIMARY KEY(Train_ID,Book_date)
 );
 delimiter //
 create trigger ins_rev after insert on ticket
 for each row
 begin
-INSERT INTO  railway_management_database.train_revinue(Train_ID,Book_date,Revinue) VALUES(New.Train_ID,CAST(New.Issue_time AS DATE),New.Fare) ON DUPLICATE KEY UPDATE    
-Revinue=Revinue+New.Fare;
+INSERT INTO  railway_management_database.train_revenue(Train_ID,Book_date,revenue) VALUES(New.Train_ID,CAST(New.Issue_time AS DATE),New.Fare) ON DUPLICATE KEY UPDATE    
+revenue=revenue+New.Fare;
 end;//
 delimiter ;
 
