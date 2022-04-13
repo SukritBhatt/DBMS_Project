@@ -23,6 +23,7 @@ import TrainListClerk from './pagesClerk/trainlist-clerk'
 import { TrainCoachClerk } from './pagesClerk/traincoach-clerk'
 import Trains from './pagesAdmin/trains'
 import PrintTicket from './components/PrintTicket'
+import Revenues from './pagesAdmin/revenues'
 
 class App extends Component {
 
@@ -665,6 +666,25 @@ class App extends Component {
               <div>
                 {this.state.adminID != 0 && 
                   <Trains {...props}
+                  history={this.props.history}
+                  setAdminID={this.setAdminID}
+                  adminID={this.state.adminID}
+                />
+                }
+
+                {this.state.adminID == 0 && 
+                  <Redirect to="/admin-login" />
+                }
+              </div>
+              
+            )}
+          />
+
+          <Route exact path='/revenues'
+            render={props => (
+              <div>
+                {this.state.adminID != 0 && 
+                  <Revenues {...props}
                   history={this.props.history}
                   setAdminID={this.setAdminID}
                   adminID={this.state.adminID}

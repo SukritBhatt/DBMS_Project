@@ -43,6 +43,9 @@ class AdminNavbar extends Component {
                         <NavLink to='/clerks' activeStyle>
                             Clerks
                         </NavLink>
+                        <NavLink to='/revenues' activeStyle>
+                            Revenues
+                        </NavLink>
                         <NavLink to='/admin-login' onClick={this.logoutPressed} activeStyle>
                             Logout
                         </NavLink>

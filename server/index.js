@@ -22,7 +22,7 @@ app.use(bobyParser.urlencoded({ extended: true }))
 app.post("/api/getRevenue",(req,res)=>{
     const train_id=req.body.trainID
     const b_date=req.body.b_date
-    const sqlgetRevenue = "Select Revinue from train_revenue where train_id=? and book_date=?"
+    const sqlgetRevenue = "Select Revenue from train_revenue where train_id=? and book_date=?"
     db.query(sqlgetRevenue, [train_id,b_date], (err, result) => {
         return res.json(result);
     });
@@ -97,6 +97,17 @@ app.post("/api/getTrainName", (req, res) => {
 
     const sqlSelectPassenger = "SELECT Name FROM train WHERE Train_ID = ?"
     db.query(sqlSelectPassenger, [trainID], (err, result) => {
+        return res.json(result);
+    });
+
+});
+
+app.post("/api/getTrainId", (req, res) => {
+
+    const trainName = req.body.trainName
+
+    const sqlSelectPassenger = "SELECT train_id FROM train WHERE name = ?"
+    db.query(sqlSelectPassenger, [trainName], (err, result) => {
         return res.json(result);
     });
 
