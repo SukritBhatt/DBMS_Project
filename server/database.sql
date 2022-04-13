@@ -1,6 +1,6 @@
 CREATE DATABASE `railway_management_database`;
 
-CREATE TABLE railway_management_database.passenger (
+CREATE TABLE `railway_management_database`.`passenger` (
   NID VARCHAR(500) NOT NULL,
   Email VARCHAR(50) NOT NULL unique,
   Name VARCHAR(50) NOT NULL,
@@ -189,6 +189,18 @@ VALUES (1, 1), (1, 2),
 (4, 2);
 
 
-
-
+create table `railway_management_database`.train_revinue(
+  `Train_ID` INT NOT NULL,
+  `Book_date` DATE NOT NULL,
+  `Revinue` INT NOT NULL,
+  PRIMARY KEY(Train_ID,Book_date)
+);
+delimiter //
+create trigger ins_rev after insert on ticket
+for each row
+begin
+INSERT INTO  railway_management_database.train_revinue(Train_ID,Book_date,Revinue) VALUES(New.Train_ID,CAST(New.Issue_time AS DATE),New.Fare) ON DUPLICATE KEY UPDATE    
+Revinue=Revinue+New.Fare;
+end;//
+delimiter ;
 
