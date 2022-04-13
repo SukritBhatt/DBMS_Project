@@ -273,8 +273,8 @@ class App extends Component {
           <Route exact path='/'
             render={props => (
               <div>
-                {this.state.passengerMail == "" && 
-                  <Home {...props}
+              {(this.state.passengerMail == null || this.state.passengerPassword == null) ? (
+                <Home {...props}
                   history={this.props.history}
                   setPassengerMail={this.setPassengerMail}
                   passengerMail={this.state.passengerMail}
@@ -298,11 +298,11 @@ class App extends Component {
                   setClerkID={this.setClerkID}
                   clerkID={this.state.clerkID}
                   />
-                }
+                ) : (
+                   <Redirect to="/home-user" />
+                )}
 
-                {this.state.passengerMail != "" && 
-                  <Redirect to="/home-user" />
-                }
+                
               </div>
             )}
           />
@@ -310,7 +310,7 @@ class App extends Component {
           <Route exact path='/home'
             render={props => (
               <div>
-                {this.state.passengerMail == "" && 
+              {(this.state.passengerMail == null || this.state.passengerPassword == null) ? (
                   <Home {...props}
                   history={this.props.history}
                   setPassengerMail={this.setPassengerMail}
@@ -334,11 +334,8 @@ class App extends Component {
     
                   setClerkID={this.setClerkID}
                   clerkID={this.state.clerkID}
-                  />
-                }
-                {this.state.passengerMail !=""&&
-                  <Redirect to="/home-user" />
-                }
+        />) : (<Redirect to="/home-user" />)}
+
               </div>
             )}
           />
