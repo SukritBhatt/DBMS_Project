@@ -11,30 +11,28 @@ export default class Header extends Component {
     render() {
         return (
             <Container>
-
                 <FindCardBox>
                     <FindCard
-                    setPassengerMail={this.props.setPassengerMail} 
-                    passengerMail={this.props.passengerMail}
-                    setFromStationID={this.props.setFromStationID}
-                    fromStationID={this.props.fromStationID}
-                    setToStationID={this.props.setToStationID}
-                    toStationID={this.props.toStationID}
-                    setFromStationPosition={this.props.setFromStationPosition}
-                    fromStationPosition={this.props.fromStationPosition}
-                    setToStationPosition={this.props.setToStationPosition}
-                    toStationPosition={this.props.toStationPosition}
-                    setJourneyDate={this.props.setJourneyDate}
-                    journeyDate={this.props.journeyDate}
-                    setClassID={this.props.setClassID}
-                    classID={this.props.classID}
-                    setNoOfPassengers={this.props.setNoOfPassengers}
-                    noOfPassengers={this.props.noOfPassengers}
-                    setSelectedTrainID={this.props.setSelectedTrainID}
-                    selectedTrainID={this.props.selectedTrainID}
+                        setPassengerMail={this.props.setPassengerMail}
+                        passengerMail={this.props.passengerMail}
+                        setFromStationID={this.props.setFromStationID}
+                        fromStationID={this.props.fromStationID}
+                        setToStationID={this.props.setToStationID}
+                        toStationID={this.props.toStationID}
+                        setFromStationPosition={this.props.setFromStationPosition}
+                        fromStationPosition={this.props.fromStationPosition}
+                        setToStationPosition={this.props.setToStationPosition}
+                        toStationPosition={this.props.toStationPosition}
+                        setJourneyDate={this.props.setJourneyDate}
+                        journeyDate={this.props.journeyDate}
+                        setClassID={this.props.setClassID}
+                        classID={this.props.classID}
+                        setNoOfPassengers={this.props.setNoOfPassengers}
+                        noOfPassengers={this.props.noOfPassengers}
+                        setSelectedTrainID={this.props.setSelectedTrainID}
+                        selectedTrainID={this.props.selectedTrainID}
                     />
                 </FindCardBox>
-                
             </Container>
         )
     }

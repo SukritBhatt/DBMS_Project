@@ -439,7 +439,9 @@ class App extends Component {
                 {this.state.passengerMail != "" && 
                   <HomeUser {...props}
                   history={this.props.history}
+                  setPassengerName={this.setPassengerName}
                   setPassengerMail={this.setPassengerMail}
+                  passengerName={this.state.passengerName}
                   passengerMail={this.state.passengerMail}
                   setFromStationID={this.setFromStationID}
                   fromStationID={this.state.fromStationID}
@@ -971,4 +973,3 @@ class App extends Component {
 }
 
 export default withRouter(App)
-

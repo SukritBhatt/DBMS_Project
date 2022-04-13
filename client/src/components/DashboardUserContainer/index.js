@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router';
-import { Container2, Heading, UserInfoContainer, Container1, InfoDiv } from '../DashboardUserContainer/DashboardUserContainerElements'
+import { Container2, Heading, UserInfoContainer, Container1, InfoDiv } from './DashboardUserContainerElements'
 import Axios from 'axios'
 import JourneyUserContainer from '../JourneyUserContainer';
 
@@ -10,9 +10,6 @@ class DashboardUserContainer extends Component {
         super(props);
 
         this.state = {
-
-            email: "",
-            password: "",
 
             items: [],
 
@@ -42,7 +39,6 @@ class DashboardUserContainer extends Component {
             },
         }
 
-
         Axios.post("http://localhost:3001/api/getPassengerJourneys", {
             nid: this.props.passengerNid,
         })
@@ -62,48 +58,6 @@ class DashboardUserContainer extends Component {
 
                 this.setState({ items: [...this.state.items, ...[object] ] })
             }
-        })
-
-        this.loginPressed = this.loginPressed.bind(this);
-
-        this.setEmail = this.setEmail.bind(this);
-        this.setPassword = this.setPassword.bind(this);
-    }
-
-    loginPressed = event => {
-        event.preventDefault();
-
-        Axios.post("http://localhost:3001/api/loginPassenger", {
-            email: this.state.email,
-            password: this.state.password,
-        })
-        .then((res) => {
-            if (res.data.isValid == true) {
-                this.props.setPassengerMail(this.state.email);
-                this.props.setPassengerNid(res.data.nid);
-                this.props.setPassengerName(res.data.name);
-                this.props.setPassengerMobile(res.data.mobile);
-                this.props.setPassengerPassword(res.data.password);
-                this.setEmail("-1");
-            } else {
-                
-            }
-        })
-    };
-
-    setEmail(data) {
-        this.setState({
-            email: data,
-        },()=>{
-            if(this.state.email != "" && this.state.email =="-1") {
-                this.props.history.push({pathname: '/home-user'});
-            }
-        })
-    }
-
-    setPassword(data) {
-        this.setState({
-            password: data,
         })
     }
 

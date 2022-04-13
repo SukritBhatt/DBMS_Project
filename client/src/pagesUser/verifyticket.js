@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
+import DeveloperSign from '../components/DeveloperSign'
 import TicketVerification from '../components/TicketVerification';
 
 export default class VerifyTicket extends Component {
@@ -36,10 +37,14 @@ export default class VerifyTicket extends Component {
 
     render() {
         return (
-            <div style={this.state.style}>
-                <Sidebar isSidebarOpen={this.state.isSidebarOpen} toggleSidebar={this.toggleSidebar} />
-                <Navbar toggleSidebar={this.toggleSidebar} />
-                <TicketVerification message={this.state.message} setMessage={this.setMessage} />
+            <div>
+                <div style={this.state.style}>
+                    <Sidebar isSidebarOpen={this.state.isSidebarOpen} toggleSidebar={this.toggleSidebar} />
+                    <Navbar toggleSidebar={this.toggleSidebar} />
+                    <TicketVerification message={this.state.message} setMessage={this.setMessage} />
+                    
+                </div>
+                <DeveloperSign />
             </div>
         )
     }
