@@ -23,6 +23,7 @@ import TrainListClerk from './pagesClerk/trainlist-clerk'
 import { TrainCoachClerk } from './pagesClerk/traincoach-clerk'
 import Trains from './pagesAdmin/trains'
 import PrintTicket from './components/PrintTicket'
+import PrintTicketClerk from './components/PrintTicketClerk'
 import Revenues from './pagesAdmin/revenues'
 
 class App extends Component {
@@ -335,8 +336,7 @@ class App extends Component {
                   clerkID={this.state.clerkID}
                   />
                 }
-
-                {this.state.passengerMail != "" && 
+                {this.state.passengerMail !=""&&
                   <Redirect to="/home-user" />
                 }
               </div>
@@ -942,7 +942,7 @@ class App extends Component {
             render={props => (
               <div>
                 {this.state.passengerMail != "" && 
-                  <PrintTicket {...props}
+                  <PrintTicketClerk {...props}
                   history={this.props.history}
                   setPassengerMail={this.setPassengerMail}
                   passengerMail={this.state.passengerMail}
