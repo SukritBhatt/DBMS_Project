@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import HomeInfoDiv from '../components/HomeInfoDiv'
 import NavbarUser from '../components/NavbarUser'
 import PaymentLogos from '../components/PaymentLogos'
+import DeveloperSign from '../components/DeveloperSign'
 import SidebarUser from '../components/SidebarUser'
 
 export default class HomeUser extends Component {
@@ -64,6 +65,8 @@ export default class HomeUser extends Component {
                 <HomeInfoDiv />
                 <hr></hr>
                 <PaymentLogos />
+                <hr></hr>
+                <DeveloperSign />
                 <hr></hr>
             </div>
         )
