@@ -370,9 +370,9 @@ export class TrainCoachClerk extends Component {
             })
             .then((res) => {
                 //alert("i am here!");
-                this.props.setPassengerMail("");
+                // this.props.setPassengerMail("");
                 //this.props.history.push("/clerk-home");
-                window.location.href='/clerk-home'
+                window.location.href='/print-ticket-clerk'
             })
     };
 
