@@ -3,9 +3,9 @@ import { NavLink as Link } from 'react-router-dom'
 import { FaBars } from 'react-icons/fa'
 
 export const Nav = styled.nav`
-    background: #292626;
+    background: rgba(0, 0, 0, 0.85);
     height: 80px;
-    width:100%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 0.5rem calc((100vw - 1000px) / 20);
@@ -13,28 +13,34 @@ export const Nav = styled.nav`
     position: fixed;
 `;
 
-export const Title = styled.div`
-    color: #fff;
-    display: flex;
+export const RightNav = styled.nav`
+    background: #292626;
+    height: auto;
     align-items: center;
-    text-decoration: none;
-    padding: 0 1rem;
-    height: 100%;
-    cursor: pointer;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: auto;
+`;
 
+export const Title = styled.div`
+color: #fff;
+display: flex;
+flex-direction: column;
+align-items: center;
+cursor: pointer;
 `;
 
 export const NavLink = styled(Link)`
     color: #fff;
-    
     align-items: center;
     text-decoration: none;
     padding: 0 1rem;
     height: 100%;
     cursor: pointer;
-
     display: flex;
-
+    cursor: pointer;
     &.active {
         color: #fff;
         border-bottom: 3px solid #fff;
@@ -44,7 +50,6 @@ export const NavLink = styled(Link)`
 export const Bars = styled(FaBars)`
     display: none;
     color: #fff;
-
     @media screen and (max-width: 768px) {
         display: block;
         transform: translate(-50%, 50%);
@@ -57,11 +62,14 @@ export const NavMenu = styled.div`
     display: flex;
     align-items: center;
     color: #fff;
-
     white-space: nowrap;
-
     @media screen and (max-width: 768px) {
         display: none;
     }
 `;
 
+export const Text = styled.h4`
+    display: flex;
+    align-items: center;
+    color: #fff;
+`;

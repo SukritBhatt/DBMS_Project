@@ -234,8 +234,8 @@ class RegistrationForm extends Component {
                         <hr style={this.state.styleHr}></hr>
         
                         <ButtonAndNavLinkBox>
-                        <Button onClick={this.signUpPressed}>Sign Up</Button>
-                        <NavLink to='/login' activeStyle> Already Registerd? </NavLink> 
+                            <Button onClick={this.signUpPressed}>Sign Up</Button>
+                            <NavLink to='/login' activeStyle> Already registered? </NavLink> 
                         </ButtonAndNavLinkBox>
                     </Form>
         

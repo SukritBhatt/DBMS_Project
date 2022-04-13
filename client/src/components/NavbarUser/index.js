@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router';
 import {
     Nav,
+    Text,
     Title,
     Bars,
     NavLink,
@@ -11,9 +12,11 @@ import {
 class NavbarUser extends Component {
 
     constructor(props) {
-        super(props);
-
+        super(props);  
         this.logoutPressed = this.logoutPressed.bind(this);
+        this.state={
+            passengerName: "henlo"
+        }
     }
 
     logoutPressed = event => {
@@ -21,37 +24,46 @@ class NavbarUser extends Component {
         this.props.setPassengerMail("");
         this.props.history.push("/home");
     }
-
+    
     render() {
         return (
             <>
                 <Nav>
                     <Title>
-                        <h3>Railway E-Ticketing Service</h3>
-                    </Title>
+                        <h5>Welcome to Hindustan Railways</h5>
+                        <h3>E-Ticketing Portal</h3>
+                    </Title> 
                     <Bars onClick={this.props.toggleSidebar} />
-                    <NavMenu>
-                        <NavLink to='/home-user' activeStyle>
-                            Home
-                        </NavLink>
-                        <NavLink to='/dashboard-user' activeStyle>
-                            Dashboard
-                        </NavLink>
-                        <NavLink to='/verify-ticket-user' activeStyle>
-                            Verify Ticket
-                        </NavLink>
-                        <NavLink to='/contact-us-user' activeStyle>
-                            Contact Us
-                        </NavLink>
-                        <NavLink to='/home' onClick={this.logoutPressed} activeStyle>
-                            Logout
-                        </NavLink>
-                    </NavMenu>
+                    {/* <RightNav> */}
+                        <NavMenu>
+                            <NavLink to='/home-user' activeStyle>
+                                Home
+                            </NavLink>
+                            <NavLink to='/dashboard-user' activeStyle>
+                                Dashboard
+                            </NavLink>
+                            <NavLink to='/verify-ticket-user' activeStyle>
+                                Verify Ticket
+                            </NavLink>
+                            <NavLink to='/contact-us-user' activeStyle>
+                                Contact Us
+                            </NavLink>
+                            <NavLink to='/home' onClick={this.logoutPressed} activeStyle>
+                                Logout
+                            </NavLink>
+                        </NavMenu>
+                    {/* </RightNav> */}
                 </Nav>
             </>
         )
     }
 }
 
-export default withRouter(NavbarUser)
+const UserText = () => {
+    //var greeting = {"Hello, you are logged in as " + this.state.passengerName};
+  //this.state.setPassengerMail
+  //alert(this.state.passengerName);
+    return <Text>{"Hello"}</Text>;
+  };
 
+export default withRouter(NavbarUser)
