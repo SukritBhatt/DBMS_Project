@@ -19,6 +19,16 @@ app.use(cors());
 app.use(express.json())
 app.use(bobyParser.urlencoded({ extended: true }))
 
+app.post("/api/getRevenue",(req,res)=>{
+    const train_id=req.body.trainID
+    const b_date=req.body.b_date
+    const sqlgetRevenue = "Select Revinue from train_revenue where train_id=? and book_date=?"
+    db.query(sqlgetRevenue, [train_id,b_date], (err, result) => {
+        return res.json(result);
+    });
+
+})
+
 app.post("/api/registerPassenger", (req, res) => {
 
     const name = req.body.name
@@ -188,13 +198,13 @@ app.post("/api/getStationList", (req, res) => {
 
 app.post("/api/getFare", (req, res) => {
 
-    const sqlSelectPassenger = "SELECT fare from fare where train_id= ? and class_id= ? and start_position= ? and end_position = ?"
+    const sqlSelectFare = "SELECT fare from fare where train_id= ? and class_id= ? and start_position= ? and end_position = ?"
     const trainID=req.body.trainID;
     const coachClassID=req.body.coachClassID;
     const fromPosition=req.body.fromPosition;
     const toPosition=req.body.toPosition;
     
-    db.query(sqlSelectPassenger, [trainID,coachClassID,fromPosition,toPosition], (err, result) => {
+    db.query(sqlSelectFare, [trainID,coachClassID,fromPosition,toPosition], (err, result) => {
 
         return res.json(result);
     });
