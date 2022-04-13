@@ -91,6 +91,15 @@ app.post("/api/getPassengerJourneys", (req, res) => {
     });
 });
 
+app.post("/api/getPassenger", (req,res) => {
+    const nid = req.body.nid;
+
+    const sqlPassenger = "select name, email, mobile from passenger where nid = ?";
+    db.query(sqlPassenger, [nid], (err, result) => {
+        return res.json(result);
+    })
+})
+
 app.post("/api/getTrainName", (req, res) => {
 
     const trainID = req.body.trainID

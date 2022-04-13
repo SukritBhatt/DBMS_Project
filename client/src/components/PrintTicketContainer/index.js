@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import { Container2, Heading, UserInfoContainer, Container1, Container3, InfoDiv, Button } from '../PrintTicketContainer/PrintTicketContainerElements'
 import Axios from 'axios'
 import JourneyUserContainer from '../../components/JourneyUserContainer';
+import axios from 'axios';
 
 class PrintTicketContainer extends Component {
 
@@ -65,38 +66,32 @@ class PrintTicketContainer extends Component {
             // }
         })
 
+        Axios.post("http://localhost:3001/api/getPassenger", {
+            nid: this.props.passengerNid,
+        })
+        .then((res) => {
+                console.log("mobile: " + res.data[0].mobile);
+                console.log("nid: "+ this.props.passengerNid);
+                this.props.setPassengerMail(res.data[0].email);
+                this.props.setPassengerMobile(res.data[0].mobile);
+                this.props.setPassengerName(res.data[0].name);
+        })
+
         this.loginPressed = this.loginPressed.bind(this);
         this.setEmail = this.setEmail.bind(this);
         this.printDiv = this.printDiv.bind(this);
         this.setPassword = this.setPassword.bind(this);
     }
 
-    loginPressed = event => {
-        event.preventDefault();
-
-        Axios.post("http://localhost:3001/api/loginPassenger", {
-            email: this.state.email,
-            password: this.state.password,
-        })
-        .then((res) => {
-            if (res.data.isValid == true) {
-                this.props.setPassengerMail(this.state.email);
-                this.props.setPassengerNid(res.data.nid);
-                this.props.setPassengerName(res.data.name);
-                this.props.setPassengerMobile(res.data.mobile);
-                this.props.setPassengerPassword(res.data.password);
-                this.setEmail("-1");
-            } else {
-                
-            }
-        })
+    loginPressed = event => {  // preventDefault before rendering site
+        event.preventDefault();    
     };
 
     setEmail(data) {
         this.setState({
             email: data,
         },()=>{
-            if(this.state.email != "" && this.state.email =="-1") {
+            if(this.state.email !== "" && this.state.email ==="-1") {
                 this.props.history.push({pathname: '/home-user'});
             }
         })
@@ -108,7 +103,8 @@ class PrintTicketContainer extends Component {
         })
     }
 
-    printDiv() {
+    printDiv(event) {
+        event.preventDefault();
         var printContents = document.getElementById('printTicket').innerHTML;
         var originalContents = document.body.innerHTML;
         document.body.innerHTML = printContents;
@@ -165,7 +161,7 @@ class PrintTicketContainer extends Component {
                 </Container2>
             </div>
             <Container3>
-                <Button  onClick={this.printDiv}>Print Ticket</Button>
+                <Button  onClick={(event) => this.printDiv(event)}>Print Ticket</Button>
             </Container3>
         </div>
         )

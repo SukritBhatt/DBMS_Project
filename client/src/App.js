@@ -938,6 +938,33 @@ class App extends Component {
             )}
           />
 
+          <Route exact path='/print-ticket-clerk'
+            render={props => (
+              <div>
+                {this.state.passengerMail != "" && 
+                  <PrintTicket {...props}
+                  history={this.props.history}
+                  setPassengerMail={this.setPassengerMail}
+                  passengerMail={this.state.passengerMail}
+                  setPassengerNid={this.setPassengerNid}
+                  passengerNid={this.state.passengerNid}
+                  setPassengerName={this.setPassengerName}
+                  passengerName={this.state.passengerName}
+                  setPassengerMobile={this.setPassengerMobile}
+                  passengerMobile={this.state.passengerMobile}
+                  setPassengerPassword={this.setPassengerPassword}
+                  passengerPassword={this.state.passengerPassword}
+                />
+                }
+
+                {this.state.passengerMail == "" && 
+                  <Redirect to="/login" />
+                }
+              </div>
+              
+            )}
+          />
+
         </Switch>
 
       </Router>
