@@ -3,13 +3,13 @@ import styled from 'styled-components'
 export const Container = styled.div`
     background-color: #20129d;
     display: flex;
-    valign: middle;
-    align-items: flex-start;
     justify-content: space-between;
     flex-direction: row;
-    margin: auto;
+    position: fixed;
+    bottom: 0;
     height: 6vh;
-    width: auto;
+    margin: auto;
+    width: 100%;
 `;
 
 export const Text = styled.div`
@@ -17,7 +17,6 @@ export const Text = styled.div`
     color: white;
     font-weight: 600;
     align-items: center;
-    padding: 0px 0px 0px 0px;
     margin: auto;
 `;
 

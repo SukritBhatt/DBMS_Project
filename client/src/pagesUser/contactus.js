@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ContactTable from '../components/ContactTable'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
+import DeveloperSign from '../components/DeveloperSign'
 
 export default class ContactUs extends Component {
 
@@ -23,10 +24,13 @@ export default class ContactUs extends Component {
 
     render() {
         return (
-            <div style={this.state.style}>
-                <Sidebar isSidebarOpen={this.state.isSidebarOpen} toggleSidebar={this.toggleSidebar} />
-                <Navbar toggleSidebar={this.toggleSidebar} />
-                <ContactTable />
+            <div>
+                <div>
+                    <Sidebar isSidebarOpen={this.state.isSidebarOpen} toggleSidebar={this.toggleSidebar} />
+                    <Navbar toggleSidebar={this.toggleSidebar} />
+                    <ContactTable />
+                </div>
+                <DeveloperSign />
             </div>
         )
     }

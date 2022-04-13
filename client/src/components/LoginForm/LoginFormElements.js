@@ -5,9 +5,9 @@ import { NavLink as Link } from 'react-router-dom'
 export const Container = styled.div`
     background: #fff;
     display: flex;
-    align-items: center; 
-    margin-top: 30px;
-    margin-bottom: 30px;
+    align-items: center;
+    margin-top: 10vh;
+    margin-bottom: auto;
     margin-left: auto;
     margin-right: auto;
     justify-content: space-between;
@@ -38,15 +38,15 @@ export const MessageBox = styled.div`
     padding: 10px 20px 10px 20px;
     @media (max-width: 768px) {
         flex-direction: column;
-        //width: 80%;
+        width: 80%;
     }
 `;
 
 export const Heading = styled.div`
-    background: #1c0bb2;
+    background: #20129d;
     align-items: center;
     border-radius: 8px 8px 0px 0px;
-    border: 4px solid #11095a;
+    border: 3px solid #11095a;
     justify-content: center;
     padding: 5px;
     margin: auto;
@@ -54,7 +54,7 @@ export const Heading = styled.div`
 `;
 
 export const Button = styled.button`
-    background: #1c0bb2;
+    background: #20129d;
     color: white;
     width: 100%;
     max-width: 150px;
@@ -65,7 +65,9 @@ export const Button = styled.button`
     cursor: pointer;
     border-radius:10px 10px 10px 10px;
     border: 2px solid #11095a;
-
+    &:hover{
+        background: #3399ff;
+    }
 `;
 
 export const Form = styled.form`
@@ -83,7 +85,7 @@ export const Form = styled.form`
 `;
 
 export const NavLink = styled(Link)`
-    color: #0099ff;
+    color: #20129d;
     display: flex;
     align-items: center;
     text-decoration: none;

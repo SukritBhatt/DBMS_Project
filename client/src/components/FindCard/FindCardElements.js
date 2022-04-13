@@ -69,17 +69,6 @@ export const InputContainerRight = styled.div`
     font-size: 16px;
 `; */
 
-export const Heading = styled.div`
-    background: #102f63;
-    align-items: center;
-    border-radius:7px 7px 0px 0px;
-    border: 5px solid #102f63;
-    justify-content: center;
-    padding: 10px 0px 10px 0px;
-    margin: auto;
-    width: 100%;
-`;
-
 export const Table = styled.table`
     width: 100%;
     background: #fff;
@@ -91,11 +80,11 @@ export const Table = styled.table`
 `;
 
 export const Button = styled.button`
-    background: #102f63;
+    background: #20129d;
     color: white;
     width: 90%;
     height: 40px;
     cursor: pointer;
     border-radius:10px 10px 10px 10px;
-    border: 2px solid #102f63;
+    border: 3px solid #11095a;
 `;

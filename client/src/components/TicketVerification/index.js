@@ -31,7 +31,11 @@ class TicketVerification extends Component {
                 margin: "0",
                 borderStyle: "none",
                 height: "1vw",
-            }
+            },
+            stylebutt: {
+                align: "center",
+                margin: "0 38%",
+            },
         }
 
         this.setTicketID = this.setTicketID.bind(this);
@@ -92,7 +96,7 @@ class TicketVerification extends Component {
                     <input style={this.state.styleInput} onChange={(e) => { this.setMobileNo(e.target.value) }} type="number" placeholder="Enter Mobile No." />
                     <br></br>
 
-                    <Button onClick={this.verifyPressed}>Verify</Button>
+                    <Button onClick={this.verifyPressed} style={this.state.stylebutt}>Verify</Button>
 
                 </Form>
                 </Container >
