@@ -19,6 +19,7 @@ class NavbarUser extends Component {
     logoutPressed = event => {
         event.preventDefault();
         this.props.setPassengerMail("");
+        this.props.setPassengerPassword("");
         this.props.history.push("/home");
     }
 
