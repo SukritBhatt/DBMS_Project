@@ -33,16 +33,16 @@ export default class PrintTicketClerk extends Component {
                 <NavbarClerk toggleSidebar={this.toggleSidebar} setPassengerMail={this.props.setPassengerMail} passengerMail={this.props.passengerMail} />
 
                 <PrintTicketContainer 
-                setPassengerMail={this.props.setPassengerMail} 
-                passengerMail={this.props.passengerMail} 
-                setPassengerNid={this.props.setPassengerNid}
-                passengerNid={this.props.passengerNid} 
-                setPassengerName={this.props.setPassengerName}
-                passengerName={this.props.passengerName} 
-                setPassengerMobile={this.props.setPassengerMobile}
-                passengerMobile={this.props.passengerMobile} 
-                setPassengerPassword={this.props.setPassengerPassword}
-                passengerPassword={this.props.passengerPassword} 
+                    setPassengerMail={this.props.setPassengerMail} 
+                    passengerMail={this.props.passengerMail} 
+                    setPassengerNid={this.props.setPassengerNid}
+                    passengerNid={this.props.passengerNid} 
+                    setPassengerName={this.props.setPassengerName}
+                    passengerName={this.props.passengerName} 
+                    setPassengerMobile={this.props.setPassengerMobile}
+                    passengerMobile={this.props.passengerMobile} 
+                    setPassengerPassword={this.props.setPassengerPassword}
+                    passengerPassword={this.props.passengerPassword} 
                 />
             
             </div>
