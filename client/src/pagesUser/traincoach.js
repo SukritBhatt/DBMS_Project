@@ -312,8 +312,9 @@ export class TrainCoach extends Component {
         var today = new Date();
         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         if(this.state.chosenSeatList.length>this.props.noOfPassengers)
-        {alert("You have chosen more passengers")
-        return;
+        {
+            alert("Please choose upto "+this.props.noOfPassengers+" passengers!")
+            return;
         }
         await Axios.post("http://localhost:3001/api/addTicket", {
             issueTime: date+' '+today.getHours() + ":"  + today.getMinutes() + ":" + today.getSeconds(),

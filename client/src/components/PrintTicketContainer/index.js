@@ -141,7 +141,7 @@ class PrintTicketContainer extends Component {
 
                         <InfoDiv>
                             <label style={this.state.styleLabel}>Mobile No:</label>
-                            <text style={this.state.styleText}>0{parseInt(this.props.passengerMobile)}</text>
+                            <text style={this.state.styleText}>+91-{parseInt(this.props.passengerMobile)}</text>
                         </InfoDiv>
                     </UserInfoContainer>
                     {/* <input type="button" onclick={() => console.log("printing")} value="practice" /> */}
