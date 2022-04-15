@@ -134,10 +134,10 @@ class PrintTicketContainer extends Component {
                             <text style={this.state.styleText}>{this.props.passengerMail}</text>
                         </InfoDiv>
 
-                        {/* <InfoDiv>
-                            <label style={this.state.styleLabel}>National ID:</label>
+                        <InfoDiv>
+                            <label style={this.state.styleLabel}>Unique ID:</label>
                             <text style={this.state.styleText}>{this.props.passengerNid}</text>
-                        </InfoDiv> */}
+                        </InfoDiv>
 
                         <InfoDiv>
                             <label style={this.state.styleLabel}>Mobile No:</label>
