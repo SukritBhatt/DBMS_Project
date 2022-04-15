@@ -31,8 +31,8 @@
 
 ## Features
 - Login
-      -Secure Login
-      -Three types of users: Admin,Clerk,Passenger with varied functionalities available to them.
+      - Secure Login
+      - Three types of users: Admin,Clerk,Passenger with varied functionalities available to them.
 - Admin features
     - Add a new Station.
     - Add a new Train with coach and fare specifications.
