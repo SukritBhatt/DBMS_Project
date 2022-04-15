@@ -30,7 +30,7 @@
     - Maintains relations, thus making data-fetch faster
 
 ## Features
--Login
+- Login
       -Secure Login
       -Three types of users: Admin,Clerk,Passenger with varied functionalities available to them.
 - Admin features
