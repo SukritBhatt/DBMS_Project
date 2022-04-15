@@ -11,7 +11,8 @@
 - [Kushagra Gupta ](https://www.linkedin.com/in/kushagra-gupta-3827a4156/)
 - [Satya Sangram Mishra](https://www.linkedin.com/in/satya-sangram/)
 
-
+## Schema
+# ![Schema](Schema.png)
 ## Tools
 ### Front End
 - [React](https://reactjs.org/)
