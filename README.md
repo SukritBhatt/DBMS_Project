@@ -50,7 +50,7 @@
     - Print the Ticket.
     - Acess to Dashboard to see All previous bookings.
     - Verify Ticket Status.
- -Non-Logged In User Features
+ - Non-Logged In User Features
     - Check Trains based on From and To location.
     - Verify Ticket Status.
     - Register as a new passenger.
