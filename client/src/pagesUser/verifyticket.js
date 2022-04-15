@@ -42,7 +42,6 @@ export default class VerifyTicket extends Component {
                     <Sidebar isSidebarOpen={this.state.isSidebarOpen} toggleSidebar={this.toggleSidebar} />
                     <Navbar toggleSidebar={this.toggleSidebar} />
                     <TicketVerification message={this.state.message} setMessage={this.setMessage} />
-                    
                 </div>
                 <DeveloperSign />
             </div>

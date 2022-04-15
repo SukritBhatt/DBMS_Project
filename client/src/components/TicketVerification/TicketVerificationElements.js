@@ -41,12 +41,11 @@ export const MessageBox = styled.div`
     }
 `;
 
-
 export const Heading = styled.div`
     background: #20129d;
     align-items: center;
     border-radius:7px 7px 0px 0px;
-    border: 2px solid #11095a;
+    border: 4px solid #11095a;
     justify-content: center;
     padding: 10px 0px 10px 0px;
     margin: auto;
@@ -74,7 +73,7 @@ export const Button = styled.button`
 export const Form = styled.form`
     background: #fff;
     display: flex;
-    padding: 50px 0px 40px 0px;
+    padding: 30px 0px 30px 0px;
     justify-content: space-between;
     flex-direction: column;
     margin: auto;
@@ -93,5 +92,4 @@ export const NavLink = styled(Link)`
     padding: 0px 0px 0px 10px;
     height: 100%;
     cursor: pointer;
-
 `;

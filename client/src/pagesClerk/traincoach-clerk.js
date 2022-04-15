@@ -6,6 +6,7 @@ import TrainCoachSeat from '../components/TrainCoachSeat';
 import { Container1, Select, InfoDiv, UserInfoContainer, Button, Heading, Container2, Container3 } from './TrainCoachClerkElements'
 import SidebarClerk from '../components/SidebarClerk';
 import NavbarClerk from '../components/NavbarClerk';
+import DeveloperSign from '../components/DeveloperSign'
 
 export class TrainCoachClerk extends Component {
     constructor(props) {
@@ -79,7 +80,6 @@ export class TrainCoachClerk extends Component {
                 }
             })
 
-
         Axios.post("http://localhost:3001/api/getTrainName", {
             trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
         })
@@ -101,8 +101,6 @@ export class TrainCoachClerk extends Component {
             .then((res) => {
                 this.setToStationName(res.data[0].Name);
             })
-
-
 
         if (this.props.fromStationPosition < this.props.toStationPosition) {
             Axios.post("http://localhost:3001/api/getUpTime", {
@@ -132,19 +130,15 @@ export class TrainCoachClerk extends Component {
 
         this.setNoOfCoaches = this.setNoOfCoaches.bind(this);
         this.changeCoachSeat = this.changeCoachSeat.bind(this);
-
         this.setTrainName = this.setTrainName.bind(this);
         this.setFromStationName = this.setFromStationName.bind(this);
         this.setToStationName = this.setToStationName.bind(this);
         this.setFare = this.setFare.bind(this)
         this.setDepartureTime = this.setDepartureTime.bind(this);
-
         this.toggleSidebar = this.toggleSidebar.bind(this);
-
         this.clearChosenSeatList = this.clearChosenSeatList.bind(this);
         this.addChosenSeatList = this.addChosenSeatList.bind(this);
         this.removeChosenSeatList = this.removeChosenSeatList.bind(this);
-
         this.purchasePressed = this.purchasePressed.bind(this);
     }
 
@@ -171,7 +165,6 @@ export class TrainCoachClerk extends Component {
         //     chosenSeatList: [...this.state.chosenSeatList, data] 
         // })
     }
-
 
     setTrainName(data) {
         this.setState({
@@ -223,13 +216,11 @@ export class TrainCoachClerk extends Component {
             console.log(res.data[0].fare);
             this.setFare(res.data[0].fare);
         })
-        
     };
 
     async changeCoachSeat(data) {
         this.props.setSelectedCoachID(parseInt(data));
         this.clearChosenSeatList();
-
         await Axios.post("http://localhost:3001/api/getSeatCount", {
             trainID: this.props.selectedTrainIDFromPositionToPosition.trainID,
             coachID: data,
@@ -276,8 +267,6 @@ export class TrainCoachClerk extends Component {
                         }
                     })
 
-
-
                 if (this.state.coachClassID == 1) {
                     this.setState({
                         coachClassName: "AC",
@@ -298,13 +287,12 @@ export class TrainCoachClerk extends Component {
         })
     }
     
-    
     async purchasePressed(event) {
         event.preventDefault();
         var today = new Date();
         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         if(this.state.chosenSeatList.length>this.props.noOfPassengers)
-        {alert("You have chosen more passengers")
+        {alert("Please choose upto "+this.props.noOfPassengers+" passengers!")
         return;
         }
         
@@ -501,7 +489,7 @@ export class TrainCoachClerk extends Component {
                     </Button>
 
                 </Container2>
-
+                <DeveloperSign/>
             </div>
         )
     }

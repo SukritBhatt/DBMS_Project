@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ContactTable from '../components/ContactTable'
 import NavbarUser from '../components/NavbarUser'
 import SidebarUser from '../components/SidebarUser'
+import DeveloperSign from '../components/DeveloperSign'
 
 export default class ContactUsUser extends Component {
 
@@ -24,9 +25,12 @@ export default class ContactUsUser extends Component {
     render() {
         return (
             <div>
-                <SidebarUser isSidebarOpen={this.state.isSidebarOpen} toggleSidebar={this.toggleSidebar} setPassengerMail={this.props.setPassengerMail} passengerMail={this.props.passengerMail} />
-                <NavbarUser toggleSidebar={this.toggleSidebar} setPassengerMail={this.props.setPassengerMail} passengerMail={this.props.passengerMail} />
-                <ContactTable />
+                <div>
+                    <SidebarUser isSidebarOpen={this.state.isSidebarOpen} toggleSidebar={this.toggleSidebar} setPassengerMail={this.props.setPassengerMail} passengerMail={this.props.passengerMail} />
+                    <NavbarUser toggleSidebar={this.toggleSidebar} setPassengerMail={this.props.setPassengerMail} passengerMail={this.props.passengerMail} />
+                    <ContactTable />
+                </div>
+                <DeveloperSign />
             </div>
         )
     }

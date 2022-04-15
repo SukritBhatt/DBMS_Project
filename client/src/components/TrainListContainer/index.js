@@ -18,13 +18,12 @@ export default class TrainListContainer extends Component {
     render() {
         return (
             <Container >
-                    <Heading>
-                        <h2 style={this.state.styleHeading}>Available Trains</h2>
-                    </Heading>
+                <Heading>
+                    <h2 style={this.state.styleHeading}>Available Trains</h2>
+                </Heading>
 
-
-                    {this.props.trainIDFromPositionToPositionList.map((trainIDFromPositionToPosition,index)=>{
-                        return <TrainInfoContainer 
+                {this.props.trainIDFromPositionToPositionList.map((trainIDFromPositionToPosition,index)=>{
+                    return <TrainInfoContainer 
                                 key={index}
                                 setPassengerMail={this.props.setPassengerMail} 
                                 passengerMail={this.props.passengerMail}
@@ -45,16 +44,13 @@ export default class TrainListContainer extends Component {
                                 setSelectedTrainID={this.props.setSelectedTrainID}
                                 selectedTrainID={this.props.selectedTrainID}
                                 trainIDFromPositionToPosition={trainIDFromPositionToPosition}
-
                                 selectedTrainIDFromPositionToPosition={this.props.selectedTrainIDFromPositionToPosition}
-                                setSelectedTrainIDFromPositionToPosition={this.props.setSelectedTrainIDFromPositionToPosition}
-                                         
+                                setSelectedTrainIDFromPositionToPosition={this.props.setSelectedTrainIDFromPositionToPosition}   
                                 setClerkID={this.props.setClerkID} 
                                 clerkID={this.props.clerkID}
-                                />
-                    })}
-
-                </Container>
+                            />
+                })}
+            </Container>
         )
     }
 }

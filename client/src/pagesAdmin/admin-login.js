@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import NavbarClerk from '../components/NavbarClerkLogin'
+import SidebarClerk from '../components/SidebarClerkLogin'
+import DeveloperSign from '../components/DeveloperSign'
 import AdminLoginForm from '../components/AdminLoginForm'
 
 export default class AdminLogin extends Component {
@@ -27,11 +30,13 @@ export default class AdminLogin extends Component {
     render() {
         return (
             <div style={this.state.style}>
-
+                <SidebarClerk isSidebarOpen={this.state.isSidebarOpen} toggleSidebar={this.toggleSidebar} setClerkID={this.props.setClerkID} clerkID={this.props.clerkID}/>
+                <NavbarClerk toggleSidebar={this.toggleSidebar} setClerkID={this.props.setClerkID} clerkID={this.props.clerkID}/>
                 <AdminLoginForm
                     setAdminID={this.props.setAdminID}
                     adminID={this.props.adminID}
                 />
+                <DeveloperSign/>
             </div>
         )
     }

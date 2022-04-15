@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import AddClerkContainer from '../components/AddClerkContainer';
+import AddClerkContainer from '../components/AddClerkContainer'
 import AdminNavbar from '../components/AdminNavbar'
 import AdminSidebar from '../components/AdminSidebar'
-import FindClerkContainer from '../components/FindClerkContainer';
-
-
+import FindClerkContainer from '../components/FindClerkContainer'
+import DeveloperSign from '../components/DeveloperSign'
 
 export default class Clerks extends Component {
 
@@ -37,6 +36,7 @@ export default class Clerks extends Component {
                 <AdminNavbar toggleSidebar={this.toggleSidebar} setAdminID={this.props.setAdminID} adminID={this.props.adminID} />
                 <FindClerkContainer />
                 <AddClerkContainer />
+                <DeveloperSign/>
             </div>
         )
     }
