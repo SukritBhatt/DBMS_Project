@@ -189,12 +189,13 @@ VALUES (1, 1), (1, 2),
 (4, 2);*/
 
 
-create table `railway_management_database`.train_revenue(
+create table `railway_management_database`.`train_revenue`(
   `Train_ID` INT NOT NULL,
   `Book_date` DATE NOT NULL,
   `revenue` INT NOT NULL,
   PRIMARY KEY(Train_ID,Book_date)
 );
+
 delimiter //
 create trigger ins_rev after insert on ticket
 for each row
