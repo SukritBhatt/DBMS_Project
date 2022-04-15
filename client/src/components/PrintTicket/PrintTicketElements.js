@@ -11,10 +11,8 @@ export const Container1 = styled.div`
     margin-left: auto;
     margin-right: auto;
     justify-content: space-between;
-
     border-radius:10px 10px 10px 10px;
-    border: 2px solid #a4b0af;
-
+    border: 2px solid #11095a;
     flex-direction: column;
     width: 90%;
     @media (max-width: 768px) {
@@ -24,10 +22,10 @@ export const Container1 = styled.div`
 `;
 
 export const Heading = styled.div`
-    background: #102f63;
+    background: #20129d;
     align-items: center;
     border-radius:7px 7px 0px 0px;
-    border: 5px solid #102f63;
+    border: 4px solid #11095a;
     justify-content: center;
     padding: 10px 0px 10px 0px;
     margin: auto;
@@ -46,7 +44,6 @@ export const UserInfoContainer = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-
     @media (max-width: 768px) {
         flex-direction: column;
         align-items: center;
@@ -58,7 +55,6 @@ export const InfoDiv = styled.div`
     padding: 30px 50px 0px 50px;
     display: flex;
     flex-direction: column;
-
     @media (max-width: 768px) {
         padding: 30px 0px 0px 0px;
         width: 80%;
@@ -75,10 +71,8 @@ export const Container2 = styled.div`
     margin-right: auto;
     justify-content: space-between;
     padding: 0px 0px 30px 0px;
-
     border-radius:10px 10px 10px 10px;
-    border: 2px solid #a4b0af;
-
+    border: 2px solid #11095a;
     flex-direction: column;
     width: 90%;
     @media (max-width: 768px) {
@@ -90,30 +84,32 @@ export const Container2 = styled.div`
 
 
 export const Button = styled.button`
-    background: #102f63;
+    background: #20129d;
     color: white;
     width: 100%;
     max-width: 150px;
+    justify-content: center;
     height: 40px;
     @media (max-width: 768px) {
         width: 35%;
     }
     cursor: pointer;
     border-radius:10px 10px 10px 10px;
-    border: 2px solid #102f63;
-
+    border: 2px solid #11095a;
+    align-items: center;
+    &:hover{
+        background: #3399ff;
+    }
 `;
 
 export const Form = styled.form`
     background: #fff;
     display: flex;
-    padding: 50px 0px 40px 0px;
+    padding: 30px 0px 30px 0px;
     justify-content: space-between;
     flex-direction: column;
     margin: auto;
     width: 55%;
-
-
     @media (max-width: 768px) {
         flex-direction: column;
         width: 70%;
@@ -121,14 +117,13 @@ export const Form = styled.form`
 `;
 
 export const NavLink = styled(Link)`
-    color: #0099ff;
+    color: #20129d;
     display: flex;
     align-items: center;
     text-decoration: none;
     padding: 0px 0px 0px 10px;
     height: 100%;
     cursor: pointer;
-
 `;
 
 export const ButtonAndNavLinkBox = styled.div`
@@ -137,7 +132,7 @@ export const ButtonAndNavLinkBox = styled.div`
     flex-direction: row;
     align-items: center;
     width: 100%;
-
+    justify-content: center;
     @media (max-width: 768px) {
         width: 100%;
     }

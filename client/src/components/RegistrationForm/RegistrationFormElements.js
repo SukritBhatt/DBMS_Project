@@ -46,7 +46,7 @@ export const Heading = styled.div`
     background: #20129d;
     align-items: center;
     border-radius: 8px 8px 0px 0px;
-    border: 2px solid #11095a;
+    border: 4px solid #11095a;
     justify-content: center;
     padding: 10px;
     margin: auto;
@@ -81,6 +81,7 @@ export const Button = styled.button`
     color: white;
     width: 100%;
     max-width: 150px;
+    justify-content: center;
     height: 40px;
     @media (max-width: 768px) {
         width: 35%;
@@ -88,6 +89,7 @@ export const Button = styled.button`
     cursor: pointer;
     border-radius:10px 10px 10px 10px;
     border: 2px solid #11095a;
+    align-items: center;
     &:hover{
         background: #3399ff;
     }
