@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import FindCardClerk from '../components/FindCardClerk'
 import NavbarClerk from '../components/NavbarClerk'
 import SidebarClerk from '../components/SidebarClerk'
+import DeveloperSign from '../components/DeveloperSign'
 
 export default class HomeClerk extends Component {
 
@@ -31,11 +32,9 @@ export default class HomeClerk extends Component {
             <div style={this.state.style}>
                 <SidebarClerk isSidebarOpen={this.state.isSidebarOpen} toggleSidebar={this.toggleSidebar} setClerkID={this.props.setClerkID} clerkID={this.props.clerkID}/>
                 <NavbarClerk toggleSidebar={this.toggleSidebar} setClerkID={this.props.setClerkID} clerkID={this.props.clerkID}/>
-                
                 <FindCardClerk
                     setPassengerMail={this.props.setPassengerMail} 
                     passengerMail={this.props.passengerMail}
-                    
                     setPassengerNid={this.props.setPassengerNid}
                     passengerNid={this.props.passengerNid}
                     setFromStationID={this.props.setFromStationID}
@@ -54,13 +53,11 @@ export default class HomeClerk extends Component {
                     noOfPassengers={this.props.noOfPassengers}
                     setSelectedTrainID={this.props.setSelectedTrainID}
                     selectedTrainID={this.props.selectedTrainID}
-
                     setClerkID={this.props.setClerkID} 
                     clerkID={this.props.clerkID}
                 />
-
+                <DeveloperSign/>
             </div>
         )
     }
 }
-

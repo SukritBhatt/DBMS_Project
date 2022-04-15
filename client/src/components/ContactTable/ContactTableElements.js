@@ -51,7 +51,7 @@ export const Heading = styled.div`
     background: #20129d;
     align-items: center;
     border-radius: 8px 8px 0px 0px;
-    border: 2px solid #11095a;
+    border: 4px solid #11095a;
     justify-content: center;
     padding: 5px 0px 0 0px;
     margin: auto;

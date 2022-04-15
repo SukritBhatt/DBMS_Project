@@ -63,12 +63,6 @@ export const InputContainerRight = styled.div`
     width: 42.5%;
 `;
 
-/* export const Select = styled.select`
-    width: 100%;
-    padding: 9px 0px 9px 0px;
-    font-size: 16px;
-`; */
-
 export const Table = styled.table`
     width: 100%;
     background: #fff;
@@ -87,4 +81,7 @@ export const Button = styled.button`
     cursor: pointer;
     border-radius:10px 10px 10px 10px;
     border: 2px solid #11095a;
+    &:hover{
+        background: #3399ff;
+    }
 `;

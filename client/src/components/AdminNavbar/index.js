@@ -19,9 +19,14 @@ class AdminNavbar extends Component {
 
     logoutPressed = event => {
         event.preventDefault();
-        
         this.props.setAdminID(0);
         this.props.history.push("/admin-login");
+    }
+
+    sitehomePressed = event => {
+        event.preventDefault();
+        this.props.setAdminID(0);
+        this.props.history.push("/home");
     }
 
 
@@ -30,7 +35,8 @@ class AdminNavbar extends Component {
             <>
                 <Nav>
                     <Title>
-                        <h3>Railway E-Ticketing Service</h3>
+                        <h5>Welcome to Hindustan Railways</h5>
+                        <h3>E-Ticketing Portal</h3>
                     </Title>
                     <Bars onClick={this.props.toggleSidebar} />
                     <NavMenu>
@@ -45,6 +51,9 @@ class AdminNavbar extends Component {
                         </NavLink>
                         <NavLink to='/revenues' activeStyle>
                             Revenues
+                        </NavLink>
+                        <NavLink to='/home' onClick={this.sitehomePressed} activeStyle>
+                            Home
                         </NavLink>
                         <NavLink to='/admin-login' onClick={this.logoutPressed} activeStyle>
                             Logout

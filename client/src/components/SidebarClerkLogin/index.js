@@ -26,8 +26,6 @@ class SidebarClerk extends Component {
                 <SidebarWrapper>
                     <SidebarMenu>
                         <SidebarLink to='/home' activeStyle>Site Home</SidebarLink>
-                        <SidebarLink to='/clerk-home' activeStyle>Clerk Home</SidebarLink>
-                        <SidebarLink to='/home' onClick={this.logoutPressed} activeStyle>Logout</SidebarLink>
                     </SidebarMenu>
                 </SidebarWrapper>
                 

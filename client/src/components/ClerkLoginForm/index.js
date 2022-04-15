@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router';
-import { Container, Button, Heading, Form, MessageBox, ButtonAndNavLinkBox } from '../ClerkLoginForm/ClerkLoginFormElements'
+import { Container, Button, Heading, Form, MessageBox, ButtonAndNavLinkBox } from './ClerkLoginFormElements'
 import Axios from 'axios'
 
 class ClerkLoginForm extends Component {
@@ -141,4 +141,3 @@ class ClerkLoginForm extends Component {
 }
 
 export default withRouter(ClerkLoginForm)
-

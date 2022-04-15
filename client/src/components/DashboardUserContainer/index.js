@@ -64,13 +64,14 @@ class DashboardUserContainer extends Component {
     render() {
         return (
             <div>
-
                 <Container1>
+
                     <Heading>
                         <h2 style={this.state.styleHeading}>Personal Information</h2>
                     </Heading>
 
                     <UserInfoContainer>
+
                         <InfoDiv>
                             <label style={this.state.styleLabel}>Name:</label>
                             <text style={this.state.styleText}>{this.props.passengerName}</text>
@@ -81,19 +82,22 @@ class DashboardUserContainer extends Component {
                             <text style={this.state.styleText}>{this.props.passengerMail}</text>
                         </InfoDiv>
 
-                        {/* <InfoDiv>
-                            <label style={this.state.styleLabel}>National ID:</label>
+                        <InfoDiv>
+                            <label style={this.state.styleLabel}>Unique ID:</label>
                             <text style={this.state.styleText}>{this.props.passengerNid}</text>
-                        </InfoDiv> */}
+                        </InfoDiv>
 
                         <InfoDiv>
                             <label style={this.state.styleLabel}>Mobile No:</label>
-                            <text style={this.state.styleText}>0{parseInt(this.props.passengerMobile)}</text>
+                            <text style={this.state.styleText}>+91-{parseInt(this.props.passengerMobile)}</text>
                         </InfoDiv>
+
                     </UserInfoContainer>
+
                 </Container1>
 
                 <Container2>
+
                     <Heading>
                         <h2 style={this.state.styleHeading}>Upcoming Journeys</h2>
                     </Heading>
@@ -106,9 +110,7 @@ class DashboardUserContainer extends Component {
                     })}
 
                 </Container2>
-
-            </div>
-            
+            </div>   
         )
     }
 }

@@ -5,6 +5,7 @@ import TrainCoachSeat from '../components/TrainCoachSeat';
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import { Container1, Select, InfoDiv, UserInfoContainer, Button, Heading, Container2, Container3 } from './TrainCoachElements'
+import DeveloperSign from '../components/DeveloperSign'
 import SidebarUser from '../components/SidebarUser';
 import NavbarUser from '../components/NavbarUser';
 
@@ -470,28 +471,20 @@ export class TrainCoach extends Component {
                             noOfPassengers={this.props.noOfPassengers}
                             setSelectedTrainID={this.props.setSelectedTrainID}
                             selectedTrainID={this.props.selectedTrainID}
-
                             setSelectedCoachID={this.props.setSelectedCoachID}
                             selectedCoachID={this.props.selectedCoachID}
                             setSelectedSeats={this.props.setSelectedSeats}
                             selectedSeats={this.props.selectedSeats}
-
                             noOfSeats={this.state.noOfSeats}
-
                             seatList={this.state.seatList}
                             seatStatusList1={this.state.seatStatusList1}
-
                             selectedTrainIDFromPositionToPosition={this.props.selectedTrainIDFromPositionToPosition}
                             setSelectedTrainIDFromPositionToPosition={this.props.setSelectedTrainIDFromPositionToPosition}
-
                             chosenSeatList={this.state.chosenSeatList}
                             addChosenSeatList={this.addChosenSeatList}
                             removeChosenSeatList={this.removeChosenSeatList}
-
-
                             setClerkID={this.props.setClerkID}
                             clerkID={this.props.clerkID}
-
                         />
                     </Container3>
 
@@ -504,7 +497,7 @@ export class TrainCoach extends Component {
                     </Button>
 
                 </Container2>
-
+                <DeveloperSign/>
             </div>
         )
     }

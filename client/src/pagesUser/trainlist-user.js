@@ -3,6 +3,7 @@ import NavbarUser from '../components/NavbarUser'
 import SidebarUser from '../components/SidebarUser'
 import Axios from 'axios'
 import TrainListContainer from '../components/TrainListContainer'
+import DeveloperSign from '../components/DeveloperSign'
 
 export default class TrainListUser extends Component {
 
@@ -41,7 +42,6 @@ export default class TrainListUser extends Component {
         this.toggleSidebar = this.toggleSidebar.bind(this);
     }
 
-
     toggleSidebar = () => {
         this.setState({
             isSidebarOpen: !this.state.isSidebarOpen,
@@ -72,17 +72,13 @@ export default class TrainListUser extends Component {
                     noOfPassengers={this.props.noOfPassengers}
                     setSelectedTrainID={this.props.setSelectedTrainID}
                     selectedTrainID={this.props.selectedTrainID}
-
                     trainIDFromPositionToPositionList={this.state.trainIDFromPositionToPositionList}
-                    
                     selectedTrainIDFromPositionToPosition={this.props.selectedTrainIDFromPositionToPosition}
-                    setSelectedTrainIDFromPositionToPosition={this.props.setSelectedTrainIDFromPositionToPosition}
-                
-                                                             
+                    setSelectedTrainIDFromPositionToPosition={this.props.setSelectedTrainIDFromPositionToPosition}         
                     setClerkID={this.props.setClerkID} 
                     clerkID={this.props.clerkID}
-
                 />
+                <DeveloperSign/>
             </div>
         )
     }

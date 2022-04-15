@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Axios from 'axios'
 import TrainListContainer from '../components/TrainListContainer'
+import DeveloperSign from '../components/DeveloperSign'
 
 export default class TrainList extends Component {
 
@@ -75,19 +76,14 @@ export default class TrainList extends Component {
                     noOfPassengers={this.props.noOfPassengers}
                     setSelectedTrainID={this.props.setSelectedTrainID}
                     selectedTrainID={this.props.selectedTrainID}
-
                     trainIDFromPositionToPositionList={this.state.trainIDFromPositionToPositionList}
-                    
                     selectedTrainIDFromPositionToPosition={this.props.selectedTrainIDFromPositionToPosition}
-                    setSelectedTrainIDFromPositionToPosition={this.props.setSelectedTrainIDFromPositionToPosition}
-
-                                                             
+                    setSelectedTrainIDFromPositionToPosition={this.props.setSelectedTrainIDFromPositionToPosition}                
                     setClerkID={this.props.setClerkID} 
                     clerkID={this.props.clerkID}
-
                 />
+                <DeveloperSign/>
             </div>
         )
     }
 }
-

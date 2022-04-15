@@ -74,9 +74,6 @@ class AdminLoginForm extends Component {
                 password: this.state.password,
             })
             .then((res) => {
-
-
-
                 if (res.data.isValid == true) {
                     this.props.setAdminID(this.state.id);
                     this.setID(-1);

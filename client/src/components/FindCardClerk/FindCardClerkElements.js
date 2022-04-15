@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 
-
 export const Container = styled.div`
-
     background-color: rgba(41,38,38,.85);
-
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -21,7 +18,6 @@ export const Container = styled.div`
 `;
 
 export const SpaceContainer = styled.div`
-
     display: flex;
     align-items: center;
     padding: 0px 0px 30px 0px;
@@ -30,7 +26,6 @@ export const SpaceContainer = styled.div`
 `;
 
 export const InputContainerLeft = styled.div`
-
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -41,7 +36,6 @@ export const InputContainerLeft = styled.div`
 `;
 
 export const InputContainerRight = styled.div`
-
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -58,10 +52,10 @@ export const Select = styled.select`
 `;
 
 export const Heading = styled.div`
-    background: #102f63;
+    background: #20129d;
     align-items: center;
     border-radius:7px 7px 0px 0px;
-    border: 5px solid #102f63;
+    border: 4px solid #11095a;
     justify-content: center;
     padding: 10px 0px 10px 0px;
     margin: auto;
@@ -78,14 +72,15 @@ export const Table = styled.table`
     }
 `;
 
-
 export const Button = styled.button`
-    background: #102f63;
+    background: #20129d;
     color: white;
     width: 90%;
     height: 40px;
     cursor: pointer;
     border-radius:10px 10px 10px 10px;
-    border: 2px solid #102f63;
-
+    border: 2px solid #11095a;
+    &:hover{
+        background: #3399ff;
+    }
 `;

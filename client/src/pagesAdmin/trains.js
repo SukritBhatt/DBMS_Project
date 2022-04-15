@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import AddTrainContainer from '../components/AddTrainContainer';
 import AdminNavbar from '../components/AdminNavbar'
 import AdminSidebar from '../components/AdminSidebar'
-
-
+import DeveloperSign from '../components/DeveloperSign'
 
 export default class Trains extends Component {
 
@@ -34,8 +33,8 @@ export default class Trains extends Component {
             <div style={this.state.style}>
                 <AdminSidebar isSidebarOpen={this.state.isSidebarOpen} toggleSidebar={this.toggleSidebar} setAdminID={this.props.setAdminID} adminID={this.props.adminID} />
                 <AdminNavbar toggleSidebar={this.toggleSidebar} setAdminID={this.props.setAdminID} adminID={this.props.adminID} />
-
                 <AddTrainContainer/>
+                <DeveloperSign/>
             </div>
         )
     }

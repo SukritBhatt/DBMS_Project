@@ -25,7 +25,7 @@ export const MessageBox = styled.div`
     background: #fc5353;
     display: ${({ emailError, passwordError }) => (emailError != "" || passwordError!="" ? 'flex' : 'none')};
     align-items: center;
-    margin-top: 100px;
+    margin-top: 20px;
     margin-bottom: auto;
     font-size: 23px;
     margin-left: auto;
@@ -38,15 +38,15 @@ export const MessageBox = styled.div`
     padding: 10px 20px 10px 20px;
     @media (max-width: 768px) {
         flex-direction: column;
-        width: 80%;
+        //width: 80%;
     }
 `;
 
 export const Heading = styled.div`
     background: #20129d;
     align-items: center;
-    border-radius: 8px 8px 0px 0px;
-    border: 3px solid #11095a;
+    border-radius: 7px 7px 0px 0px;
+    border: 4px solid #11095a;
     justify-content: center;
     padding: 5px;
     margin: auto;

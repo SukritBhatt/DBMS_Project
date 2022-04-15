@@ -18,13 +18,6 @@ class NavbarClerk extends Component {
 
     logoutPressed = event => {
         event.preventDefault();
-        this.props.setClerkID(0);
-        this.props.history.push("/clerk-login");
-    }
-
-    sitehomePressed = event => {
-        event.preventDefault();
-        this.props.setClerkID(0);
         this.props.history.push("/home");
     }
 
@@ -38,14 +31,8 @@ class NavbarClerk extends Component {
                     </Title>
                     <Bars onClick={this.props.toggleSidebar} />
                     <NavMenu>
-                        <NavLink to='/home' onClick={this.sitehomePressed} activeStyle>
-                            Site Home
-                        </NavLink>
-                        <NavLink to='/clerk-home' activeStyle>
-                            Clerk Home
-                        </NavLink>
-                        <NavLink to='/clerk-login' onClick={this.logoutPressed} activeStyle>
-                            Logout
+                        <NavLink to='/home' onClick={this.logoutPressed} activeStyle>
+                            Home
                         </NavLink>
                     </NavMenu>
                 </Nav>

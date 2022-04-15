@@ -29,6 +29,9 @@ color: #fff;
 display: flex;
 flex-direction: column;
 align-items: center;
+text-decoration: none;
+padding: 0 1rem;
+height: 100%;
 cursor: pointer;
 `;
 

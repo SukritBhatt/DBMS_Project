@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import NavbarUser from '../components/NavbarUser'
 import SidebarUser from '../components/SidebarUser'
-import DashboardUserContainer from '../components/DashboardUserContainer';
+import DashboardUserContainer from '../components/DashboardUserContainer'
+import DeveloperSign from '../components/DeveloperSign'
 
 export default class DashboardUser extends Component {
 
@@ -44,26 +45,20 @@ export default class DashboardUser extends Component {
             <div style={this.state.style}>
                 <SidebarUser isSidebarOpen={this.state.isSidebarOpen} toggleSidebar={this.toggleSidebar} setPassengerMail={this.props.setPassengerMail} passengerMail={this.props.passengerMail} />
                 <NavbarUser toggleSidebar={this.toggleSidebar} setPassengerMail={this.props.setPassengerMail} passengerMail={this.props.passengerMail} />
-            
-                {/* <h1>{this.props.passengerMail}</h1>
-                <h1>{this.props.passengerNid}</h1>
-                <h1>{this.props.passengerName}</h1>
-                <h1>{this.props.passengerMobile}</h1>
-                <h1>{this.props.passengerPassword}</h1> */}
-
+                
                 <DashboardUserContainer 
-                setPassengerMail={this.props.setPassengerMail} 
-                passengerMail={this.props.passengerMail} 
-                setPassengerNid={this.props.setPassengerNid}
-                passengerNid={this.props.passengerNid} 
-                setPassengerName={this.props.setPassengerName}
-                passengerName={this.props.passengerName} 
-                setPassengerMobile={this.props.setPassengerMobile}
-                passengerMobile={this.props.passengerMobile} 
-                setPassengerPassword={this.props.setPassengerPassword}
-                passengerPassword={this.props.passengerPassword} 
+                    setPassengerMail={this.props.setPassengerMail} 
+                    passengerMail={this.props.passengerMail} 
+                    setPassengerNid={this.props.setPassengerNid}
+                    passengerNid={this.props.passengerNid} 
+                    setPassengerName={this.props.setPassengerName}
+                    passengerName={this.props.passengerName} 
+                    setPassengerMobile={this.props.setPassengerMobile}
+                    passengerMobile={this.props.passengerMobile} 
+                    setPassengerPassword={this.props.setPassengerPassword}
+                    passengerPassword={this.props.passengerPassword} 
                 />
-            
+                <DeveloperSign />
             </div>
         )
     }
