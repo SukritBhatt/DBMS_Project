@@ -113,19 +113,19 @@ CREATE TABLE `railway_management_database`.`ticket_seat` (
 
 
 INSERT INTO `railway_management_database`.admin (ID, Password)
-VALUES (1, 'admin');
+VALUES (1, 'admin123');
 
 INSERT INTO `railway_management_database`.passenger 
-VALUES (1, 'p1@gmail.com', 'Passenger 1', 1521370630, '1'), (2, 'p2@gmail.com', 'Passenger 2', 1720658277, '1'), (3, 'p3@gmail.com', 'Passenger 3', 1924563623, '1');
+VALUES (1, 'manoj@gmail.com', 'Passenger 1', 1521370630, 'user123'), (2, 'suresh@gmail.com', 'Passenger 2', 1720658277, 'user123'), (3, 'vikas@gmail.com', 'Passenger 3', 1924563623, 'user123');
 
 INSERT INTO `railway_management_database`.station (Name, District)
-VALUES ('Chittagong Railway Station', 'Chittagong'), ('Cumilla Railway Station', 'Cumilla'), ('Komolapur Railway Station', 'Dhaka');
+VALUES ('Delhi Railway Station', 'Delhi'), ('Jaipur Railway Station', 'Jaipur'), ('Khurdha Railway Station', 'Khurdha');
 
 INSERT INTO `railway_management_database`.train (Name, No_of_coaches, No_of_classes)
-VALUES ('Suborno Express', 3, 2), ('Turna Express', 3, 2);
+VALUES ('Rajdhani Express', 3, 2), ('Sabarmati Express', 3, 2);
 
 INSERT INTO `railway_management_database`.booking_clerk (Name, Mobile, Password, Station_ID)
-VALUES ('Clerk 1', 1934562345, '1', 2);
+VALUES ('Clerk 1', 1934562345, 'clerk123', 2);
 
 INSERT INTO `railway_management_database`.train_coach 
 VALUES (1, 1, 1, 12),
@@ -161,7 +161,7 @@ VALUES (1, 1, 1, 2, 400),
 (2, 2, 1, 3, 400);
 
 
-INSERT INTO `railway_management_database`.booking_status (Train_ID, Coach_ID, Date, Start_position, End_position, Seat_no)
+/*INSERT INTO `railway_management_database`.booking_status (Train_ID, Coach_ID, Date, Start_position, End_position, Seat_no)
 VALUES (1, 1, '2021-10-17', 1, 3, 1),
 (1, 1, '2021-10-17', 1, 3, 2),
 (1, 2, '2021-10-17', 1, 3, 2),
@@ -172,21 +172,21 @@ VALUES (1, 1, '2021-10-17', 1, 3, 1),
 (2, 2, '2021-10-17', 1, 3, 2),
 (2, 3, '2021-10-17', 1, 3, 4);
 
-INSERT INTO `railway_management_database`.booking_status (Train_ID, Coach_ID, Date, Start_position, End_position, Seat_no) VALUES (2, 2, '2021-10-16', 11, 13, 2);
+INSERT INTO `railway_management_database`.booking_status (Train_ID, Coach_ID, Date, Start_position, End_position, Seat_no) VALUES (2, 2, '2021-10-16', 11, 13, 2);*/
 
-INSERT INTO `railway_management_database`.ticket (Issue_time, Journey_time, Start_position, End_position, Train_ID, Class_ID, Coach_ID, No_of_seats, Fare, Passenger_ID)
+/*INSERT INTO `railway_management_database`.ticket (Issue_time, Journey_time, Start_position, End_position, Train_ID, Class_ID, Coach_ID, No_of_seats, Fare, Passenger_ID)
 VALUES ('2021-10-17 05:40:30', '2021-10-17 07:00:00', 1, 2, 1, 1, 1, 2, 800, 1), 
 ('2021-10-17 05:40:30', '2021-10-17 09:00:00', 2, 3, 1, 2, 2, 1, 400, 2),
 
 ('2021-10-17 12:20:35', '2021-10-17 08:00:00', 3, 2, 2, 1, 1, 1, 500, 3),
-('2021-10-17 12:20:35', '2021-10-17 00:00:00', 1, 3, 2, 2, 2, 1, 400, 1);
+('2021-10-17 12:20:35', '2021-10-17 00:00:00', 1, 3, 2, 2, 2, 1, 400, 1);*/
 
 
-INSERT INTO `railway_management_database`.ticket_seat 
+/*INSERT INTO `railway_management_database`.ticket_seat 
 VALUES (1, 1), (1, 2),
 (2, 2), 
 (3, 4),
-(4, 2);
+(4, 2);*/
 
 
 create table `railway_management_database`.train_revenue(

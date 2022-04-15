@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { FaWindows } from 'react-icons/fa';
 import { withRouter } from 'react-router';
 import {
     Nav,
@@ -18,7 +19,10 @@ class NavbarClerk extends Component {
 
     logoutPressed = event => {
         event.preventDefault();
-        this.props.history.push("/clerk-login");
+        this.props.setClerkID(0);
+        /*this.props.history.push("/clerk-login");*/
+        window.location.href="/clerk-login"
+
     }
 
     render() {
