@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Container, Button, Heading, Form, NavLink, MessageBox, ButtonAndNavLinkBox } from '../RegistrationForm/RegistrationFormElements'
 import Axios from 'axios'
 import { withRouter } from 'react-router-dom';
+const bcrypt = require('bcryptjs');
 
 
 class RegistrationForm extends Component {
@@ -113,28 +114,41 @@ class RegistrationForm extends Component {
         event.preventDefault();
 
         let isValid = this.validate();
-        if(isValid) {
-            Axios.post("http://localhost:3001/api/registerPassenger", {
-                name: this.state.name,
-                nid: this.state.nid,
-                email: this.state.email,
-                mobile: this.state.mobile,
-                password: this.state.password,
-            })
-            .then((res) => {
-                if (res.data.isValid == true) {
-                    this.props.setPassengerMail(this.state.email);
-                    this.props.setPassengerNid(res.data.nid);
-                    this.props.setPassengerName(this.state.name);
-                    this.props.setPassengerMobile(this.state.mobile);
-                    this.props.setPassengerPassword(this.state.password);
-                    this.setEmail("-1");
-                } else {
-                    this.setState({passwordError: "Invalid Credentials."})
-                }
-            })
-        }
+        let passwordString =  this.state.password.toString();
 
+        const hashPromise = new Promise((resolve, reject) => {
+            bcrypt.genSalt(10, function(err, salt) {
+                bcrypt.hash(passwordString, salt, function(err, hash) {
+                    if(err) reject(err);
+                    else resolve(hash);
+                });
+            })
+        }) 
+
+        hashPromise.then((hash) =>{
+
+            if(isValid) {
+                Axios.post("http://localhost:3001/api/registerPassenger", {
+                    name: this.state.name,
+                    nid: this.state.nid,
+                    email: this.state.email,
+                    mobile: this.state.mobile,
+                    password: hash,
+                })
+                .then((res) => {
+                    if (res.data.isValid == true) {
+                        this.props.setPassengerMail(this.state.email);
+                        this.props.setPassengerNid(res.data.nid);
+                        this.props.setPassengerName(this.state.name);
+                        this.props.setPassengerMobile(this.state.mobile);
+                        this.props.setPassengerPassword(hash);
+                        this.setEmail("-1");
+                    } else {
+                        this.setState({passwordError: "Invalid Credentials."})
+                    }
+                })
+            }
+        });
     };
 
     setName(data) {

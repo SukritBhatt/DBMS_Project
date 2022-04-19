@@ -115,8 +115,8 @@ CREATE TABLE `railway_management_database`.`ticket_seat` (
 INSERT INTO `railway_management_database`.admin (ID, Password)
 VALUES (1, 'admin123');
 
-INSERT INTO `railway_management_database`.passenger 
-VALUES (1, 'manoj@gmail.com', 'Passenger 1', 1521370630, 'user123'), (2, 'suresh@gmail.com', 'Passenger 2', 1720658277, 'user123'), (3, 'vikas@gmail.com', 'Passenger 3', 1924563623, 'user123');
+-- INSERT INTO `railway_management_database`.passenger 
+-- VALUES (1, 'manoj@gmail.com', 'Passenger 1', 1521370630, 'user123'), (2, 'suresh@gmail.com', 'Passenger 2', 1720658277, 'user123'), (3, 'vikas@gmail.com', 'Passenger 3', 1924563623, 'user123');
 
 INSERT INTO `railway_management_database`.station (Name, District)
 VALUES ('Delhi Railway Station', 'Delhi'), ('Jaipur Railway Station', 'Jaipur'), ('Khurdha Railway Station', 'Khurdha');
