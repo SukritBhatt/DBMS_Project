@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import { Container, Button, Heading, Form, NavLink, ButtonAndNavLinkBox, MessageBox } from '../LoginForm/LoginFormElements'
 import Axios from 'axios'
 import DeveloperSign from '../DeveloperSign'
+const bcrypt = require('bcryptjs');
 
 class LoginForm extends Component {
 
@@ -72,20 +73,39 @@ class LoginForm extends Component {
         event.preventDefault();
 
         let isValid = this.validate();
+        let passwordString = this.state.password.toString();
+
         if(isValid) {
             Axios.post("http://localhost:3001/api/loginPassenger", {
-                email: this.state.email,
-                password: this.state.password,
+                email: this.state.email
             })
             .then((res) => {
-                if (res.data.isValid == true) {
-                    this.props.setPassengerMail(this.state.email);
-                    this.props.setPassengerNid(res.data.nid);
-                    this.props.setPassengerName(res.data.name);
-                    this.props.setPassengerMobile(res.data.mobile);
-                    this.props.setPassengerPassword(res.data.password);
-                    this.setEmail("-1");
-                } else {
+                const hashPromise = new Promise((resolve, reject) => {
+                    bcrypt.compare(passwordString, res.data.password, function(err, resultHash) {
+                        if(err) reject(err);
+                        else resolve(resultHash);
+                    });
+                })
+                console.log(res.data.toString());
+                if (res.data.isValid == true) { // correct email
+
+                    // check for password
+                    hashPromise.then((flag) => {
+                        if(flag === true) { // correct password
+                            this.props.setPassengerMail(this.state.email);
+                            this.props.setPassengerNid(res.data.nid);
+                            this.props.setPassengerName(res.data.name);
+                            this.props.setPassengerMobile(res.data.mobile);
+                            this.props.setPassengerPassword(res.data.password);
+                            this.setEmail("-1");
+                        }
+                        else{ // incorrect password
+                            this.setState({passwordError: "Incorrect Credentials."})
+                        }
+                    })
+
+                    
+                } else { // incorrect email
                     this.setState({passwordError: "Incorrect Credentials."})
                 }
             })

@@ -6,6 +6,7 @@ const app = express();
 const mysql = require("mysql")
 const dotenv = require('dotenv');
 dotenv.config();
+const e = require("express");
 
 const db = mysql.createPool({
     host: "localhost",
@@ -57,10 +58,9 @@ app.post("/api/registerPassenger", (req, res) => {
 app.post("/api/loginPassenger", (req, res) => {
 
     const email = req.body.email
-    const password = req.body.password
     
-    const sqlSelectPassenger = "SELECT * FROM passenger WHERE email = ? AND password = ?"
-    db.query(sqlSelectPassenger, [email, password], (err, result) => {
+    const sqlSelectPassenger = "SELECT * FROM passenger WHERE email = ?"
+    db.query(sqlSelectPassenger, [email], (err, result) => {
         if (result.length == 1) {
             var user = {
                 isValid: true,
