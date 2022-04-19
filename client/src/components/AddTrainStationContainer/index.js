@@ -34,7 +34,7 @@ class AddTrainStationContainer extends Component {
             },
         }
 
-        alert(this.props.stationCount);
+        //alert(this.props.stationCount);
 
         this.addPressed = this.addPressed.bind(this);
 
