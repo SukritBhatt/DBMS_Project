@@ -1,7 +1,9 @@
 # DBMS Lab Project - Railway E-Ticketing Service
 ### Design of a fictional Railways Booking Service
+### Find the repo at https://github.com/SukritBhatt/DBMS_Project.git
 
-## People behind
+
+## Project Details
 
 ### Institute: [IIT Bhubaneswar](https://www.iitbbs.ac.in/)
 ### Course Instructor : [Dr. Padmalochan Bera](https://scholar.google.co.in/citations?user=_PJ8HK0AAAAJ&hl=en)
@@ -16,24 +18,24 @@
 ## Tools
 ### Front End
 - [React](https://reactjs.org/)
-    - Library for building user interfaces based on UI components
-- [HTML, CSS, JavaScript](https://html-css-js.com/)
-    - Regular content, styling, interactions, etc.
+    - A JavaScript library for building user interfaces
+- [HTML, CSS, JavaScript](https://www.w3.org/)
+    - W3C standard web-technologies for building, styling and designing web pages
 
 
 ### Back End
 - [Node](https://nodejs.org/en/)
-    - For DB interactions, server get, server post, etc
+    - Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine
 - [Express](https://expressjs.com/)
-    - Frameworks for providing abstract APIs to setup GET and POST routes over Node
+    - Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications
 - [MySQL](https://www.mysql.com/)
-    - The RDBMS used for CRUD operations
-    - Maintains relations, thus making data-fetch faster
+    - MySQL is an open-source relational database management system
+    - It is often integrated with other programs to implement applications that need relational database capability
 
 ## Features
 - Login
     - Secure Login
-    - Three types of users: Admin,Clerk,Passenger with varied functionalities available to them.
+    - Three types of users: Admin, Clerk, Passenger with varied functionalities available to them.
 - Admin features
     - Add a new Station.
     - Add a new Train with coach and fare specifications.
@@ -57,21 +59,18 @@
     - Register as a new passenger.
 
 ## Usage
-Here's the basic philosophy:
+The project can be set up as follows:
 
 0. Install Node.JS in your local machine
-1. Clone this repository (the top right green button)
-2. Open using your favourite IDE ([VS Code](https://code.visualstudio.com/) is great!)
-3. Install npm packages mentioned in the [package.json]
-4. Setup mysql on your local machine.
-5. Login to the mysql session as a new root user, create a database using the "database.sql" file.
-6. Now,
-    - Your node_modules are installed
-    - DB is ready
-7. So, open up the VS Code (or any IDE or no IDE also!) terminal in the project dir; `cd` into the `server` folder; then run
-    `node run devStart` to start the server.
-8. `cd` into the `client` folder; then run
-    `node run start` to start the client.
-9. Start playing with the site in your favourite browser @ localhost:3000
+1. Clone this repository
+2. `cd` into the project directory
+3. Install npm packages inside both server and client folders
+4. Setup mysql on your local machine
+5. Login to the mysql session as a new root user. Create the required database by running the "database.sql" file provided in the repo
+6. `cd` into the `server` folder; then run
+    `node run devStart` to start the server
+7. `cd` into the `client` folder; then run
+    `node run start` to start the client
+8. The site will load in your browser @ localhost:3000
 
-**N.B. : The user credentials for MySQL, the database name and the PORT - all need to properly set as environment variables. 
+**N.B. : The user credentials for MySQL, the database name and the PORT - all need to properly set as environment variables in a .env file
